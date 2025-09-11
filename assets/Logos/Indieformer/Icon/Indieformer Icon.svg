@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 147.09 158.6">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #262730;
+      }
+
+      .cls-2 {
+        fill: #f78154;
+      }
+
+      .cls-3 {
+        fill: #28e291;
+      }
+
+      .cls-4 {
+        fill: #9381ff;
+      }
+    </style>
+  </defs>
+  <g id="Waypoint_Logo" data-name="Waypoint Logo">
+    <g>
+      <polygon class="cls-2" points="94.29 34.5 52.2 36.82 75.3 71.21 94.29 34.5"/>
+      <polygon class="cls-3" points="77 76.79 74.97 158.22 116.34 95.07 77 76.79"/>
+      <polygon class="cls-4" points="120.71 92.39 147.09 87.33 130.32 46.1 120.71 92.39"/>
+      <polygon class="cls-4" points="71.79 158.6 73.83 76.72 30.2 94.73 71.79 158.6"/>
+      <polygon class="cls-2" points="16.38 46.13 0 86.54 25.78 91.95 16.38 46.13"/>
+      <polygon class="cls-1" points="2.67 90.35 63.46 151.63 26.86 95.41 2.67 90.35"/>
+      <polygon class="cls-2" points="67.35 3.77 22.82 38.09 48.36 33.94 67.35 3.77"/>
+      <polygon class="cls-1" points="122.99 37.39 80.03 4.16 97.95 31.36 122.99 37.39"/>
+      <polygon class="cls-3" points="94.13 31.32 73.48 0 52.3 33.64 94.13 31.32"/>
+      <polygon class="cls-3" points="73.08 73.6 49.74 38.86 30.56 91.15 73.08 73.6"/>
+      <polygon class="cls-2" points="82.8 152.07 144.46 91.06 119.63 95.83 82.8 152.07"/>
+      <polygon class="cls-1" points="77.65 73.58 115.92 91.37 96.69 36.75 77.65 73.58"/>
+      <polygon class="cls-4" points="46.9 37.4 18.77 41.97 28.26 88.21 46.9 37.4"/>
+      <polygon class="cls-3" points="127.96 41.85 99.44 34.98 118.27 88.49 127.96 41.85"/>
+    </g>
+  </g>
+</svg>
