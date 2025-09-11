@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://cck6jlns7tsbc"]
+
+[ext_resource type="Script" uid="uid://fd3hmnwhyxta" path="res://godotdir/node_2d.gd" id="1_wtcfe"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_wtcfe")
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 102.0
+offset_top = 66.0
+offset_right = 438.0
+offset_bottom = 217.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.5
+offset_top = -82.5
+offset_right = 138.5
+offset_bottom = 82.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 120
+text = "hiiiiii"
+
+[connection signal="mouse_entered" from="Button/Label" to="." method="_on_label_mouse_entered"]
