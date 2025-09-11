@@ -6,6 +6,7 @@ var original_text: String = ""
 
 func _ready():
 	print("ready")
+	print('hello world')
 	# Store the original text
 	original_text = label.text
 	# Connect button hover signals
