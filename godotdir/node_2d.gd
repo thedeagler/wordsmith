@@ -31,3 +31,4 @@ func _on_button_mouse_entered() -> void:
 func _on_button_mouse_exited() -> void:
 	print("button mouse exit")
 	label.text = original_text
+	
