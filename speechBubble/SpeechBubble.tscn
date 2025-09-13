@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://buo1kt05336x2"]
+[gd_scene load_steps=4 format=3 uid="uid://buo1kt05336x2"]
 
 [ext_resource type="Script" uid="uid://xquecpmphja7" path="res://speechBubble/speech_bubble.gd" id="1_og80g"]
 [ext_resource type="Texture2D" uid="uid://c6td2bwsjy5em" path="res://speechBubble/pixel-speech-bubble.png" id="2_ntb1a"]
+[ext_resource type="FontFile" uid="uid://cxdl6et7l1oqw" path="res://assets/Alien Font-Regular.otf" id="3_ntb1a"]
 
 [node name="SpeechBubble" type="Control"]
 layout_mode = 3
@@ -23,3 +24,11 @@ offset_left = 10.0
 offset_top = 4.0
 offset_right = 122.0
 offset_bottom = 34.0
+theme_override_fonts/normal_font = ExtResource("3_ntb1a")
+theme_override_fonts/mono_font = ExtResource("3_ntb1a")
+theme_override_fonts/italics_font = ExtResource("3_ntb1a")
+theme_override_fonts/bold_italics_font = ExtResource("3_ntb1a")
+theme_override_fonts/bold_font = ExtResource("3_ntb1a")
+bbcode_enabled = true
+fit_content = true
+scroll_active = false

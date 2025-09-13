@@ -2,8 +2,7 @@ extends Node
 class_name Utils
 
 static func random_symbol_string(length: int) -> String:
-    # var symbols := "!@#$%^&*()_-+=[]{};:'\",.<>?/|\\~` "
-    var symbols := "awejf;oaiewjfpap'o30-3 "
+    var symbols := "abcdefghijklmnopqrstuvwxyz "
     var result := ""
     var rng := RandomNumberGenerator.new()
     rng.randomize()

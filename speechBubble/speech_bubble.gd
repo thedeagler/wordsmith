@@ -3,25 +3,7 @@ extends Control
 @onready var text_label: RichTextLabel = $TextLabel
 
 func _ready():
-	# Debug: Check if font is loaded
-	var normal_font = text_label.get_theme_font("normal_font")
-	var mono_font = text_label.get_theme_font("mono_font")
-	print("Normal font loaded: ", normal_font != null)
-	print("Mono font loaded: ", mono_font != null)
-	if normal_font:
-		print("Normal font resource path: ", normal_font.resource_path)
-	if mono_font:
-		print("Mono font resource path: ", mono_font.resource_path)
-	
-	# Try to load font programmatically as fallback
-	var font_resource = load("res://assets/Alien Font-Regular.otf")
-	if font_resource:
-		print("Font loaded programmatically: ", font_resource)
-		text_label.add_theme_font_override("normal_font", font_resource)
-		text_label.add_theme_font_override("mono_font", font_resource)
-	else:
-		print("Failed to load font programmatically")
-
+	pass
 # --- Configurable properties ---
 @export var typing_speed: float = 0.05   # seconds per character
 @export var default_rarity: String = "common"
@@ -36,20 +18,20 @@ var typing: bool = false
 # --- Rarity styles ---
 var rarity_styles := {
 	"common": {
-		"prefix": "[color=black]",
-		"suffix": "[/color]"
+		"color": Color.BLACK,
+		"bold": false
 	},
 	"rare": {
-		"prefix": "[color=blue]",
-		"suffix": "[/color]"
+		"color": Color.BLUE,
+		"bold": false
 	},
 	"epic": {
-		"prefix": "[b][color=purple]",
-		"suffix": "[/color][/b]"
+		"color": Color.PURPLE,
+		"bold": true
 	},
 	"legendary": {
-		"prefix": "[b][color=gold]",
-		"suffix": "[/color][/b]"
+		"color": Color.GOLD,
+		"bold": true
 	}
 }
 
@@ -59,11 +41,8 @@ func show_text(new_text: String, rarity: String = default_rarity) -> void:
 		# If already typing, finish current text instantly
 		finish_typing()
 
-	var style = rarity_styles.get(rarity, rarity_styles[default_rarity])
 	# Store the raw text without formatting for typing animation
 	full_text = new_text
-	# Store the formatted text for display
-	formatted_text = style.prefix + new_text + style.suffix
 	# Store current rarity for typing animation
 	current_rarity = rarity
 
@@ -82,7 +61,19 @@ func _type_next_char() -> void:
 		text_label.clear()
 		var current_text = full_text.substr(0, char_index + 1)
 		var style = rarity_styles.get(current_rarity, rarity_styles[default_rarity])
-		text_label.append_text(style.prefix + current_text + style.suffix)
+		
+		# Apply formatting using push/pop API
+		text_label.push_color(style.color)
+		if style.bold:
+			text_label.push_bold()
+		
+		text_label.append_text(current_text)
+		
+		# Pop formatting
+		if style.bold:
+			text_label.pop()
+		text_label.pop()
+		
 		char_index += 1
 		await get_tree().create_timer(typing_speed).timeout
 		_type_next_char()
@@ -93,5 +84,19 @@ func _type_next_char() -> void:
 func finish_typing() -> void:
 	typing = false
 	text_label.clear()
-	text_label.add_text(formatted_text)
+	
+	var style = rarity_styles.get(current_rarity, rarity_styles[default_rarity])
+	
+	# Apply formatting using push/pop API
+	text_label.push_color(style.color)
+	if style.bold:
+		text_label.push_bold()
+	
+	text_label.append_text(full_text)
+	
+	# Pop formatting
+	if style.bold:
+		text_label.pop()
+	text_label.pop()
+	
 	char_index = full_text.length()
