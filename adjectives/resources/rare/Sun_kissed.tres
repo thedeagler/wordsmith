@@ -12,4 +12,4 @@ color = Color(0, 0, 1, 1)
 script = ExtResource("2_smdqm")
 word = "Sun-kissed"
 rarity = SubResource("Resource_riawh")
-description = "Just a basic description"
+description = "Touched or warmed by sunlight"

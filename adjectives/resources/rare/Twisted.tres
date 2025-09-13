@@ -12,4 +12,4 @@ color = Color(0, 0, 1, 1)
 script = ExtResource("2_6bq5f")
 word = "Twisted"
 rarity = SubResource("Resource_ii76c")
-description = "Just a basic description"
+description = "Wound together or distorted"

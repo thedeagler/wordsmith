@@ -12,4 +12,4 @@ color = Color(0.745098, 0.745098, 0.745098, 1)
 script = ExtResource("2_s7vn3")
 word = "Warm"
 rarity = SubResource("Resource_caoc6")
-description = "Just a basic description"
+description = "Moderately hot or comforting"

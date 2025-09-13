@@ -12,4 +12,4 @@ color = Color(0, 0, 1, 1)
 script = ExtResource("2_cbafc")
 word = "Silent"
 rarity = SubResource("Resource_tulap")
-description = "Just a basic description"
+description = "Without sound or noise"

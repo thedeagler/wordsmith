@@ -12,4 +12,4 @@ color = Color(0.627451, 0.12549, 0.941176, 1)
 script = ExtResource("2_4f136")
 word = "Immovable"
 rarity = SubResource("Resource_rrj74")
-description = "Just a basic description"
+description = "Unable to be moved"

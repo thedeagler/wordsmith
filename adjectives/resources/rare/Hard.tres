@@ -12,4 +12,4 @@ color = Color(0, 0, 1, 1)
 script = ExtResource("2_7nrvw")
 word = "Hard"
 rarity = SubResource("Resource_ix7qt")
-description = "Just a basic description"
+description = "\"Firm"

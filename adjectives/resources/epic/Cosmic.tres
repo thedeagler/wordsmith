@@ -12,4 +12,4 @@ color = Color(0.627451, 0.12549, 0.941176, 1)
 script = ExtResource("2_0fhac")
 word = "Cosmic"
 rarity = SubResource("Resource_vci4t")
-description = "Just a basic description"
+description = "Vast or relating to the universe"

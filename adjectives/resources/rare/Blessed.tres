@@ -12,4 +12,4 @@ color = Color(0, 0, 1, 1)
 script = ExtResource("2_ca1yp")
 word = "Blessed"
 rarity = SubResource("Resource_hbynx")
-description = "Just a basic description"
+description = "Favored or endowed with good fortune"

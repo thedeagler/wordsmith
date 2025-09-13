@@ -12,4 +12,4 @@ color = Color(0, 0, 1, 1)
 script = ExtResource("2_u0tcc")
 word = "Cursed"
 rarity = SubResource("Resource_h5q2a")
-description = "Just a basic description"
+description = "Under a supernatural or unlucky spell"

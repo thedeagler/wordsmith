@@ -12,4 +12,4 @@ color = Color(0.627451, 0.12549, 0.941176, 1)
 script = ExtResource("2_mu2ed")
 word = "Kinetic"
 rarity = SubResource("Resource_e6uur")
-description = "Just a basic description"
+description = "Relating to motion or movement"

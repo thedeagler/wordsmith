@@ -12,4 +12,4 @@ color = Color(0.745098, 0.745098, 0.745098, 1)
 script = ExtResource("2_58jji")
 word = "Square"
 rarity = SubResource("Resource_nfq1g")
-description = "Just a basic description"
+description = "Having four equal sides and right angles"

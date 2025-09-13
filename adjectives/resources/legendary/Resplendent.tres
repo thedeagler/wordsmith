@@ -12,4 +12,4 @@ color = Color(1, 0.843137, 0, 1)
 script = ExtResource("2_rahcd")
 word = "Resplendent"
 rarity = SubResource("Resource_1e5dq")
-description = "Just a basic description"
+description = "\"Blindingly radiant"

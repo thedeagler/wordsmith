@@ -12,4 +12,4 @@ color = Color(0.627451, 0.12549, 0.941176, 1)
 script = ExtResource("2_ejkw3")
 word = "Infernal"
 rarity = SubResource("Resource_q8mho")
-description = "Just a basic description"
+description = "Hellish or intensely hot"

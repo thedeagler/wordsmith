@@ -12,4 +12,4 @@ color = Color(0, 0, 1, 1)
 script = ExtResource("2_l7kh8")
 word = "Blue"
 rarity = SubResource("Resource_qub71")
-description = "Just a basic description"
+description = "Color of the clear sky or deep sea"

@@ -12,4 +12,4 @@ color = Color(0, 0, 1, 1)
 script = ExtResource("2_sbomk")
 word = "Gleaming"
 rarity = SubResource("Resource_m2nli")
-description = "Just a basic description"
+description = "Shining brightly with reflected light"

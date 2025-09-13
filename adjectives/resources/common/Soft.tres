@@ -12,4 +12,4 @@ color = Color(0.745098, 0.745098, 0.745098, 1)
 script = ExtResource("2_nfvbe")
 word = "Soft"
 rarity = SubResource("Resource_yu0ga")
-description = "Just a basic description"
+description = "Gentle to the touch or not hard"

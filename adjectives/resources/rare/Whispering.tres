@@ -12,4 +12,4 @@ color = Color(0, 0, 1, 1)
 script = ExtResource("2_1yrfp")
 word = "Whispering"
 rarity = SubResource("Resource_piw8j")
-description = "Just a basic description"
+description = "Speaking very softly or faintly"

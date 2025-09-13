@@ -12,4 +12,4 @@ color = Color(1, 0.843137, 0, 1)
 script = ExtResource("2_i8uhf")
 word = "Soul crushing"
 rarity = SubResource("Resource_8xq12")
-description = "Just a basic description"
+description = "A weight that crushes the very soul"

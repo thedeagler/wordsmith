@@ -12,4 +12,4 @@ color = Color(1, 0.843137, 0, 1)
 script = ExtResource("2_elc0n")
 word = "Star-born"
 rarity = SubResource("Resource_o5553")
-description = "Just a basic description"
+description = "Forged from the essence of distant stars"

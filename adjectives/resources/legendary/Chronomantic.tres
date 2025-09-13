@@ -12,4 +12,4 @@ color = Color(1, 0.843137, 0, 1)
 script = ExtResource("2_r5ch1")
 word = "Chronomantic"
 rarity = SubResource("Resource_x1sdj")
-description = "Just a basic description"
+description = "Mastery over the flow of time itself"

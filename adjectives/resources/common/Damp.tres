@@ -12,4 +12,4 @@ color = Color(0.745098, 0.745098, 0.745098, 1)
 script = ExtResource("2_sat6c")
 word = "Damp"
 rarity = SubResource("Resource_v0pmh")
-description = "Just a basic description"
+description = "Slightly wet or moist"

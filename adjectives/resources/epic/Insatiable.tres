@@ -12,4 +12,4 @@ color = Color(0.627451, 0.12549, 0.941176, 1)
 script = ExtResource("2_miibc")
 word = "Insatiable"
 rarity = SubResource("Resource_gx4d0")
-description = "Just a basic description"
+description = "Impossible to satisfy"

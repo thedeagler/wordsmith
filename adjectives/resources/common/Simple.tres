@@ -12,4 +12,4 @@ color = Color(0.745098, 0.745098, 0.745098, 1)
 script = ExtResource("2_eb45i")
 word = "Simple"
 rarity = SubResource("Resource_hw0ek")
-description = "Just a basic description"
+description = "Easy to understand or plain"

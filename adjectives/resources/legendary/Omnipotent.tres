@@ -12,4 +12,4 @@ color = Color(1, 0.843137, 0, 1)
 script = ExtResource("2_8ri8g")
 word = "Omnipotent"
 rarity = SubResource("Resource_p8brb")
-description = "Just a basic description"
+description = "Power that bends worlds to your will"

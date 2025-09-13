@@ -12,4 +12,4 @@ color = Color(1, 0.843137, 0, 1)
 script = ExtResource("2_7dkgt")
 word = "Quantum-shifted"
 rarity = SubResource("Resource_pmgaj")
-description = "Just a basic description"
+description = "Twists the very fabric of reality"

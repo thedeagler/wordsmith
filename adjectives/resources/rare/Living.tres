@@ -12,4 +12,4 @@ color = Color(0, 0, 1, 1)
 script = ExtResource("2_unul8")
 word = "Living"
 rarity = SubResource("Resource_boqvr")
-description = "Just a basic description"
+description = "Alive or full of life"

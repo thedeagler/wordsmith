@@ -12,4 +12,4 @@ color = Color(0.627451, 0.12549, 0.941176, 1)
 script = ExtResource("2_yhka8")
 word = "Divine"
 rarity = SubResource("Resource_3spft")
-description = "Just a basic description"
+description = "Sacred or godlike"

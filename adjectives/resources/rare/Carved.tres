@@ -12,4 +12,4 @@ color = Color(0, 0, 1, 1)
 script = ExtResource("2_7kpjf")
 word = "Carved"
 rarity = SubResource("Resource_fuf7f")
-description = "Just a basic description"
+description = "Shaped or decorated by cutting"

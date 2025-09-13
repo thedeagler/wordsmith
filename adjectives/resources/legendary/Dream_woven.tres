@@ -12,4 +12,4 @@ color = Color(1, 0.843137, 0, 1)
 script = ExtResource("2_l4622")
 word = "Dream-woven"
 rarity = SubResource("Resource_8ih8w")
-description = "Just a basic description"
+description = "Reality stitched from the threads of dreams"

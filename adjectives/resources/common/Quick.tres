@@ -12,4 +12,4 @@ color = Color(0.745098, 0.745098, 0.745098, 1)
 script = ExtResource("2_heti5")
 word = "Quick"
 rarity = SubResource("Resource_icefk")
-description = "Just a basic description"
+description = "Fast or rapid in action"
