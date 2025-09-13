@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://3dwm0qbo5itv"]
+
+[ext_resource type="Script" uid="uid://cg5awg3px1oi3" path="res://levels/characterCreation/CharacterCreation.gd" id="1_0x8y9"]
+[ext_resource type="Script" uid="uid://dwjst2sj81jyo" path="res://levels/characterCreation/ui/NameInputPanel.gd" id="2_1x9y0"]
+
+[node name="CharacterCreation" type="Node2D"]
+script = ExtResource("1_0x8y9")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="NameInputPanel" type="CenterContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("2_1x9y0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/NameInputPanel"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="UI/NameInputPanel/VBoxContainer"]
+layout_mode = 2
+text = "What is your name?"
+horizontal_alignment = 1
+
+[node name="NameInput" type="LineEdit" parent="UI/NameInputPanel/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Enter your character name..."
+
+[node name="SubmitButton" type="Button" parent="UI/NameInputPanel/VBoxContainer"]
+layout_mode = 2
+text = "Submit"
+
+[node name="ErrorLabel" type="Label" parent="UI/NameInputPanel/VBoxContainer"]
+layout_mode = 2
+text = "Error message"
+horizontal_alignment = 1
+
+[node name="CharacterDescriptionLabel" type="CenterContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 239.0
+offset_bottom = 239.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(599, 314)
+
+[node name="Label" type="Label" parent="UI/CharacterDescriptionLabel"]
+layout_mode = 2
+text = "You are..."
+horizontal_alignment = 1
