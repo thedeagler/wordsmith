@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqx8y7v8lam2n"]
+
+[ext_resource type="Script" uid="uid://cvnlfdsqrsgpj" path="res://levels/intro/Area1.gd" id="1_0h8vx"]
+[ext_resource type="PackedScene" uid="uid://ha0p6f1boiwb" path="res://ControllableCharacter2D/ControllableCharacter2D.tscn" id="2_ksvln"]
+[ext_resource type="PackedScene" uid="uid://6og6dc04hfg1" path="res://camera/SmoothFollowCamera.tscn" id="3_udnfv"]
+
+[node name="Area1" type="Node2D"]
+script = ExtResource("1_0h8vx")
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(100, 0)
+
+[node name="ControllableCharacter2D" parent="Player" instance=ExtResource("2_ksvln")]
+
+[node name="SmoothFollowCamera" parent="Player/ControllableCharacter2D" instance=ExtResource("3_udnfv")]
