@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://infinite_tiles_test"]
+[gd_scene load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://test/InfiniteTiles.gd" id="1_infinite"]
+[ext_resource type="Script" uid="uid://bbcvk18sj60h0" path="res://test/util/InfiniteTiles.gd" id="1_infinite"]
 
 [node name="InfiniteTiles" type="Node2D"]
 script = ExtResource("1_infinite")
