@@ -1,8 +1,15 @@
-[gd_resource type="Resource" script_class="AdjectiveData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="AdjectiveData" load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://adjectives/AdjectiveData.gd" id="1_0qfvs"]
+[ext_resource type="Script" path="res://rarity/RarityData.gd" id="1_8gv47"]
+[ext_resource type="Script" path="res://adjectives/AdjectiveData.gd" id="2_miibc"]
+
+[sub_resource type="Resource" id="Resource_gx4d0"]
+script = ExtResource("1_8gv47")
+name = "epic"
+color = Color(0.627451, 0.12549, 0.941176, 1)
 
 [resource]
-script = ExtResource("1_0qfvs")
+script = ExtResource("2_miibc")
 word = "Insatiable"
-rarity = "epic"
+rarity = SubResource("Resource_gx4d0")
+description = "Just a basic description"

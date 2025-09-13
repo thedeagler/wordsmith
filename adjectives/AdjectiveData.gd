@@ -2,8 +2,10 @@ class_name AdjectiveData
 extends Resource
 
 @export var word: String
-@export var rarity: String
+@export var rarity: RarityData
+@export var description: String
 
-func _init(p_word: String = "", p_rarity: String = "common"):
+func _init(p_word: String = "", p_rarity: String = "common", p_description: String = ""):
 	word = p_word
-	rarity = p_rarity
+	rarity = RarityData.new(p_rarity)
+	description = p_description

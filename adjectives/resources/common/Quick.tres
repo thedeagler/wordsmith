@@ -1,8 +1,15 @@
-[gd_resource type="Resource" script_class="AdjectiveData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="AdjectiveData" load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://adjectives/AdjectiveData.gd" id="1_0lxtc"]
+[ext_resource type="Script" path="res://rarity/RarityData.gd" id="1_rkn68"]
+[ext_resource type="Script" path="res://adjectives/AdjectiveData.gd" id="2_heti5"]
+
+[sub_resource type="Resource" id="Resource_icefk"]
+script = ExtResource("1_rkn68")
+name = "common"
+color = Color(0.745098, 0.745098, 0.745098, 1)
 
 [resource]
-script = ExtResource("1_0lxtc")
+script = ExtResource("2_heti5")
 word = "Quick"
-rarity = "common"
+rarity = SubResource("Resource_icefk")
+description = "Just a basic description"

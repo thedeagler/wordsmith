@@ -1,8 +1,15 @@
-[gd_resource type="Resource" script_class="AdjectiveData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="AdjectiveData" load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://adjectives/AdjectiveData.gd" id="1_r8j6g"]
+[ext_resource type="Script" path="res://rarity/RarityData.gd" id="1_07f8i"]
+[ext_resource type="Script" path="res://adjectives/AdjectiveData.gd" id="2_7dkgt"]
+
+[sub_resource type="Resource" id="Resource_pmgaj"]
+script = ExtResource("1_07f8i")
+name = "legendary"
+color = Color(1, 0.843137, 0, 1)
 
 [resource]
-script = ExtResource("1_r8j6g")
+script = ExtResource("2_7dkgt")
 word = "Quantum-shifted"
-rarity = "legendary"
+rarity = SubResource("Resource_pmgaj")
+description = "Just a basic description"

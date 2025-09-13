@@ -69,13 +69,14 @@ func _ensure_rarity_directory(rarity_dir: String) -> bool:
 func _generate_single_resource(row_data: Dictionary, rarity_dir: String) -> bool:
 	var word = row_data.get("word", "")
 	var rarity = row_data.get("rarity", "common")
+	var description = row_data.get("description", "")
 	
 	if word.is_empty():
 		_errors.append("Cannot generate resource for empty word")
 		return false
 	
 	# Create AdjectiveData resource
-	var adjective_data = AdjectiveData.new(word, rarity)
+	var adjective_data = AdjectiveData.new(word, rarity, description)
 	
 	# Generate safe filename
 	var safe_filename = _generate_safe_filename(word)

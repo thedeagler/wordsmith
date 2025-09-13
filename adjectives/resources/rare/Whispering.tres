@@ -1,8 +1,15 @@
-[gd_resource type="Resource" script_class="AdjectiveData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="AdjectiveData" load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://adjectives/AdjectiveData.gd" id="1_37pcf"]
+[ext_resource type="Script" path="res://rarity/RarityData.gd" id="1_kw7cp"]
+[ext_resource type="Script" path="res://adjectives/AdjectiveData.gd" id="2_1yrfp"]
+
+[sub_resource type="Resource" id="Resource_piw8j"]
+script = ExtResource("1_kw7cp")
+name = "rare"
+color = Color(0, 0, 1, 1)
 
 [resource]
-script = ExtResource("1_37pcf")
+script = ExtResource("2_1yrfp")
 word = "Whispering"
-rarity = "rare"
+rarity = SubResource("Resource_piw8j")
+description = "Just a basic description"

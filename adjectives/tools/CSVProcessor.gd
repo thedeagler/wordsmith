@@ -56,15 +56,21 @@ func parse_csv(file_path: String) -> Array[Dictionary]:
 ## Parse a single CSV line into a dictionary
 func _parse_csv_line(line: String) -> Dictionary:
 	var parts = line.split(",")
-	if parts.size() < 2:
+	if parts.size() < 3:
 		return {}
 	
 	var word = parts[0].strip_edges()
 	var rarity = parts[1].strip_edges()
+	var description = parts[2].strip_edges()
+	
+	# Remove quotes from description if present
+	if description.begins_with("\"") and description.ends_with("\""):
+		description = description.substr(1, description.length() - 2)
 	
 	return {
 		"word": word,
-		"rarity": rarity
+		"rarity": rarity,
+		"description": description
 	}
 
 ## Validate a single row of data
@@ -88,6 +94,11 @@ func _validate_row(row_data: Dictionary, line_number: int) -> Dictionary:
 	elif rarity not in VALID_RARITIES:
 		result.valid = false
 		result.errors.append("Line " + str(line_number) + ": Invalid rarity '" + rarity + "'. Must be one of: " + str(VALID_RARITIES))
+	
+	# Check description
+	var description = row_data.get("description", "")
+	if description.is_empty():
+		result.warnings.append("Line " + str(line_number) + ": Description is empty for word '" + row_data.get("word", "") + "'")
 	
 	# Check for duplicate words
 	var word = row_data.get("word", "")

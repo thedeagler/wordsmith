@@ -23,7 +23,6 @@ static func load_adjectives(base_path: String = "res://adjectives/resources") ->
 	# List subdirectories (common, rare, epic, legendary)
 	for subdir in dir.get_directories():
 		var rarity_path := base_path.path_join(subdir)
-		var rarity_resources: Array[Resource] = []
 
 		var subdir_access := DirAccess.open(rarity_path)
 		if subdir_access == null:
@@ -35,7 +34,7 @@ static func load_adjectives(base_path: String = "res://adjectives/resources") ->
 				var resource_path := rarity_path.path_join(file)
 				var res = ResourceLoader.load(resource_path)
 				if res != null:
-					GameState.adjectives[res.rarity].append(res)
+					GameState.adjectives[res.rarity.name].append(res)
 
 # TODO: set the weights as configurable arguments					
 # TODO: add secret sauce tier	
@@ -47,7 +46,7 @@ static func get_random_rarity() -> String:
 		"legendary": 2
 	}
 
-	var roll = randi_range(1, 100) 
+	var roll = randi_range(1, 100)
 	var cumulative = 0
 
 	for rarity in weights.keys():
