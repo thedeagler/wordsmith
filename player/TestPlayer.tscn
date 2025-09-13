@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwyrxw7bnjqm"]
+
+[ext_resource type="PackedScene" uid="uid://ha0p6f1boiwb" path="res://player/Player.tscn" id="1_test"]
+[ext_resource type="Script" uid="uid://cpjh0a43t02pr" path="res://player/TestPlayer.gd" id="2_infinite"]
+
+[node name="TestPlayer" type="Node2D"]
+
+[node name="InfiniteTiles" type="Node2D" parent="."]
+script = ExtResource("2_infinite")
+
+[node name="Tile" type="ColorRect" parent="InfiniteTiles"]
+offset_right = 512.0
+offset_bottom = 512.0
+
+[node name="Player" parent="." instance=ExtResource("1_test")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
