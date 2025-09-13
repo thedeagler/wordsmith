@@ -14,16 +14,12 @@ func handle_movement():
 	var input_direction = Vector2()
 	
 	if Input.is_action_pressed("move_left"):
-		print("move_left")
 		input_direction.x -= 1
 	if Input.is_action_pressed("move_right"):
-		print("move_right")
 		input_direction.x += 1
 	if Input.is_action_pressed("move_up"):
-		print("move_up")
 		input_direction.y -= 1
 	if Input.is_action_pressed("move_down"):
-		print("move_down")
 		input_direction.y += 1
 	
 	# Normalize diagonal movement

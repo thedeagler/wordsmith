@@ -1,15 +1,54 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqx8y7v8lam2n"]
+[gd_scene load_steps=8 format=3 uid="uid://bqx8y7v8lam2n"]
 
 [ext_resource type="Script" uid="uid://cvnlfdsqrsgpj" path="res://levels/intro/Area1.gd" id="1_0h8vx"]
 [ext_resource type="PackedScene" uid="uid://ha0p6f1boiwb" path="res://ControllableCharacter2D/ControllableCharacter2D.tscn" id="2_ksvln"]
 [ext_resource type="PackedScene" uid="uid://6og6dc04hfg1" path="res://camera/SmoothFollowCamera.tscn" id="3_udnfv"]
+[ext_resource type="Texture2D" uid="uid://cgwoy8u446clc" path="res://assets/notebook_paper.png" id="4_5t6g7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(20, 1620)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3"]
+size = Vector2(20, 1620)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2"]
+size = Vector2(3840, 20)
 
 [node name="Area1" type="Node2D"]
 script = ExtResource("1_0h8vx")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(1920, 810)
+scale = Vector2(8, 6)
+texture = ExtResource("4_5t6g7")
+
+[node name="Boundaries" type="StaticBody2D" parent="."]
+
+[node name="LeftWall" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(-10, 810)
+shape = SubResource("RectangleShape2D_1")
+
+[node name="RightWall" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(3850, 810)
+shape = SubResource("RectangleShape2D_3")
+
+[node name="Ground" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(1920, 1620)
+shape = SubResource("RectangleShape2D_2")
+
+[node name="Ceiling" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(1920, -10)
+shape = SubResource("RectangleShape2D_2")
 
 [node name="Player" type="Node2D" parent="."]
 position = Vector2(100, 0)
 
 [node name="ControllableCharacter2D" parent="Player" instance=ExtResource("2_ksvln")]
 
-[node name="SmoothFollowCamera" parent="Player/ControllableCharacter2D" instance=ExtResource("3_udnfv")]
+[node name="SmoothFollowCamera" parent="Player" instance=ExtResource("3_udnfv")]
+
+[node name="TransitionTrigger" type="Area2D" parent="."]
+position = Vector2(3602, 800)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionTrigger"]
+shape = SubResource("RectangleShape2D_1")
