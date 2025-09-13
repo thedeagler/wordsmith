@@ -1,15 +1,3 @@
 [remap]
 
-importer="csv_translation"
-type="Translation"
-uid="uid://crayfh5mdqftj"
-valid=false
-
-[deps]
-
-source_file="res://adjectives/adjectives.csv"
-
-[params]
-
-compress=true
-delimiter=0
+importer="keep"
