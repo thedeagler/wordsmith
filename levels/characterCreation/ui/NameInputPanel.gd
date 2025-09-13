@@ -22,7 +22,7 @@ func _initialize_ui():
 	submit_button.disabled = true
 	
 	# Set placeholder text
-	name_input.placeholder_text = "Enter your character name..."
+	name_input.placeholder_text = "..."
 
 func _connect_signals():
 	# Connect input field signals
