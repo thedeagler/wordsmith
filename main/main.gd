@@ -1,6 +1,6 @@
 extends Node2D
-var PLAYER_SCENE: String = "res://test/player/TestPlayer.tscn"
+var CONTROLLABLE_CHARACTER_SCENE: String = "res://test/ControllableCharacter2D/TestControllableCharacter2D.tscn"
 var CAMERA_SCENE: String = "res://test/camera/CameraTestScene.tscn"
 
 func _ready():
-	get_tree().change_scene_to_file.call_deferred(CAMERA_SCENE)
+	get_tree().change_scene_to_file.call_deferred(CONTROLLABLE_CHARACTER_SCENE)

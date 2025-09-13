@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://6og6dc04hfg1"]
 
-[ext_resource type="Script" path="res://camera/SmoothFollowCamera.gd" id="1_0x8k2"]
+[ext_resource type="Script" uid="uid://qrvyujcja5ib" path="res://camera/SmoothFollowCamera.gd" id="1_0x8k2"]
 
 [node name="SmoothFollowCamera" type="Camera2D"]
 script = ExtResource("1_0x8k2")
