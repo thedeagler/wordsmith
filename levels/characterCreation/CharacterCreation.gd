@@ -31,7 +31,7 @@ func _on_name_submitted(name: String):
 		player_name = name.strip_edges()
 		_update_character_description()
 		_show_character_description()
-	current_step += 1
+		current_step += 1
 		print("Name submitted: ", player_name)
 	else:
 		# Validation failed, let the panel handle the error
