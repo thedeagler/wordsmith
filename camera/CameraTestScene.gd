@@ -4,6 +4,7 @@ extends Node2D
 @onready var red_node: Node2D = $RedNode
 @onready var green_node: Node2D = $GreenNode
 @onready var blue_node: Node2D = $BlueNode
+@onready var yellow_node: Node2D = $YellowNode
 @onready var camera: Camera2D = $SmoothFollowCamera
 
 # Array of nodes to cycle through
@@ -16,7 +17,7 @@ var movement_radius: float = 300.0
 
 func _ready():
 	# Initialize the target nodes array
-	target_nodes = [red_node, green_node, blue_node]
+	target_nodes = [red_node, green_node, blue_node, yellow_node]
 	
 	# Set up the camera to follow the first node
 	if camera and target_nodes.size() > 0:
@@ -51,6 +52,13 @@ func _move_nodes(_delta):
 	
 	# Blue node - static position
 	blue_node.position = Vector2(-200, 150)
+	
+	# Yellow node - back and forth movement for deadzone testing
+	var yellow_angle = current_time * 1.0
+	yellow_node.position = Vector2(
+		sin(yellow_angle) * 100, # Move back and forth horizontally
+		0 # Keep at center vertically
+	)
 
 func _cycle_to_next_target():
 	# Move to next target
