@@ -93,6 +93,5 @@ func _type_next_char() -> void:
 func finish_typing() -> void:
 	typing = false
 	text_label.clear()
-	text_label.add_textgs
-  (formatted_text)
+	text_label.add_text(formatted_text)
 	char_index = full_text.length()
