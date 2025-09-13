@@ -7,4 +7,8 @@ var CHARACTER_CREATION_SCENE: String = "res://levels/characterCreation/Character
 func _ready():
 	# For now, redirect to character creation scene
 	# Later this will check for existing player data
+	
+	# Initialize game data	
+	Utils.load_adjectives()
+	
 	get_tree().change_scene_to_file.call_deferred(CHARACTER_CREATION_SCENE)

@@ -15,6 +15,7 @@ func _ready():
 	# Initialize the scene
 	_initialize_ui()
 	_connect_signals()
+	
 
 func _initialize_ui():
 	# Show name input panel initially, hide description label
