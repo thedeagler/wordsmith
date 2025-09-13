@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="AdjectiveData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://adjectives/AdjectiveData.gd" id="1_nv7n5"]
+
+[resource]
+script = ExtResource("1_nv7n5")
+word = "Silent"
+rarity = "rare"
