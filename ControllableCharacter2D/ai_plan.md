@@ -45,4 +45,3 @@ main/
   - Player instance
   - Basic background/floor
   - Camera2D to follow player
-
