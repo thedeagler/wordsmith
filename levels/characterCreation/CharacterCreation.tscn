@@ -36,6 +36,7 @@ layout_mode = 2
 text = "Submit"
 
 [node name="ErrorLabel" type="Label" parent="UI/NameInputPanel/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Error message"
 horizontal_alignment = 1
