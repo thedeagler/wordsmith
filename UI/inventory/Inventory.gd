@@ -5,11 +5,18 @@ class_name InventoryUI
 @onready var armor_slot: InventorySlot = $Loadout/Armor
 @onready var boots_slot: InventorySlot = $Loadout/Boots
 @onready var grid_container: GridContainer = $InventoryGrid/GridContainer
+var slot_scene := preload("res://ui/inventory/InventorySlot.tscn")
+
+func _ready() -> void:
+	PlayerData.inventory_update.connect(populate_inventory)
+	populate_inventory(PlayerData.inventory)
 
 func populate_inventory(inventory_items: Array):
-	grid_container.clear_children()
+	for child in grid_container.get_children():
+		child.queue_free()
+		
 	for item in inventory_items:
-		var slot_instance = preload("res://ui/inventory/InventorySlot.tscn").instantiate()
+		var slot_instance = slot_scene.instantiate()
 		slot_instance.set_item(item)
 		slot_instance.slot_type = "item"
 		grid_container.add_child(slot_instance)
