@@ -47,14 +47,11 @@ position = Vector2(1877, 524)
 shape = SubResource("RectangleShape2D_2")
 
 [node name="Player" parent="." instance=ExtResource("2_ksvln")]
-position = Vector2(383, 727)
-motion_mode = 1
-movement_speed = 800.0
+position = Vector2(455, 640)
 
 [node name="SmoothFollowCamera" parent="Player" instance=ExtResource("3_udnfv")]
 
 [node name="MeleeWeapon" parent="Player" instance=ExtResource("5_snbsy")]
-position = Vector2(39, -115)
 
 [node name="Walk" parent="." instance=ExtResource("4_udnfv")]
 position = Vector2(867, 670)

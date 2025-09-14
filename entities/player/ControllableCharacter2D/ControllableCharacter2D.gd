@@ -5,9 +5,16 @@ class_name ControllableCharacter2D
 @export var acceleration: float = 1000.0
 @export var friction: float = 200.0
 
+func _ready() -> void:
+	var dmgeable = $Damageable
+	#dmgeable.entisty = self
+
 func _physics_process(delta):
 	handle_movement()
 	move_and_slide()
+	if Input.is_action_just_pressed("attack"):
+		var mouse_pos = get_global_mouse_position()
+		$MeleeWeapon.swing(mouse_pos)
 
 func handle_movement():
 	# Get input direction
@@ -30,3 +37,6 @@ func handle_movement():
 		velocity = velocity.move_toward(input_direction * movement_speed, acceleration)
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, friction)
+		
+func on_damaged(amount: int, _source) -> void:
+	print('ow', amount)

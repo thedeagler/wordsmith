@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://ha0p6f1boiwb"]
 
 [ext_resource type="Script" uid="uid://c3wpkrqe6vbk4" path="res://entities/player/ControllableCharacter2D/ControllableCharacter2D.gd" id="1_0x8y2"]
-[ext_resource type="Script" uid="uid://b1teou4wlluc5" path="res://components/Damageable.gd" id="2_ftt42"]
+[ext_resource type="PackedScene" uid="uid://jukb8qqfulqr" path="res://components/Damageable.tscn" id="2_3y1nm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1x2y3"]
-size = Vector2(44, 78)
+size = Vector2(76, 152)
 
 [node name="ControllableCharacter2D" type="CharacterBody2D" groups=["player"]]
 position = Vector2(192, 300)
@@ -13,9 +13,7 @@ movement_speed = 300.0
 acceleration = 2000.0
 friction = 50.0
 
-[node name="Damageable" type="Node" parent="."]
-script = ExtResource("2_ftt42")
-metadata/_custom_type_script = "uid://b1teou4wlluc5"
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1x2y3")
+
+[node name="Damageable" parent="." instance=ExtResource("2_3y1nm")]
