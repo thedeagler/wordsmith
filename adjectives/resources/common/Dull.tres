@@ -12,4 +12,4 @@ color = Color(0.745098, 0.745098, 0.745098, 1)
 script = ExtResource("2_pw4at")
 word = "Dull"
 rarity = SubResource("Resource_cu6jh")
-description = "\"Lacking brightness - sharpness - or interest\""
+description = "Lacking brightness - sharpness - or interest"
