@@ -11,7 +11,7 @@ var swinging: bool = false
 signal hit(target)
 
 func _ready():
-	pass
+	$AnimationPlayer.animation_finished.connect(_end_swing)
 	
 func swing(target_position: Vector2):
 	if swinging:
@@ -29,7 +29,6 @@ func swing(target_position: Vector2):
 	rotation = start_rot
 
 	$AnimationPlayer.play("RESET")
-	$AnimationPlayer.animation_finished.connect(_end_swing)
 
 func _end_swing(anim_name):
 	if anim_name == "RESET":
