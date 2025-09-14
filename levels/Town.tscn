@@ -29,44 +29,43 @@ script = ExtResource("1_u886a")
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_wh5ye")
 
-[node name="Player" parent="." instance=ExtResource("2_i03sh")]
-position = Vector2(-916, 110)
-movement_speed = 800.0
+[node name="Boundaries" type="StaticBody2D" parent="."]
 
-[node name="MeleeWeapon" parent="Player" instance=ExtResource("3_u886a")]
-position = Vector2(76, -127)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="LeftWall" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="LeftWall" type="CollisionShape2D" parent="Boundaries"]
 position = Vector2(-964.75, 118)
 shape = SubResource("RectangleShape2D_i03sh")
 
-[node name="BottomWall" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="BottomWall" type="CollisionShape2D" parent="Boundaries"]
 position = Vector2(25, 544)
 scale = Vector2(3.24, 1)
 shape = SubResource("RectangleShape2D_u886a")
 
-[node name="TopWall" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="TopWall" type="CollisionShape2D" parent="Boundaries"]
 position = Vector2(-2, -244)
 scale = Vector2(2.2, 1)
 shape = SubResource("RectangleShape2D_seach")
 
-[node name="RightWall" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="RightWall" type="CollisionShape2D" parent="Boundaries"]
 position = Vector2(961, 140)
 scale = Vector2(2.2, 1)
 shape = SubResource("RectangleShape2D_ns20s")
+
+[node name="Player" parent="." instance=ExtResource("2_i03sh")]
+position = Vector2(-916, 110)
+movement_speed = 800.0
+
+[node name="SmoothFollowCamera" parent="Player" node_paths=PackedStringArray("target") instance=ExtResource("4_seach")]
+target = NodePath("..")
+bounds_enabled = false
+show_debug_bounds = true
+
+[node name="MeleeWeapon" parent="Player" instance=ExtResource("3_u886a")]
+position = Vector2(76, -127)
 
 [node name="TransitionTrigger" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionTrigger"]
 position = Vector2(958, 143)
 shape = SubResource("RectangleShape2D_k1nfj")
-
-[node name="SmoothFollowCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_seach")]
-position = Vector2(-916, 110)
-target = NodePath("../Player")
-bounds_enabled = false
-show_debug_bounds = true
 
 [node name="TownNPC" parent="." instance=ExtResource("6_seach")]

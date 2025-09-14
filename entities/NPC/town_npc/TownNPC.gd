@@ -9,11 +9,6 @@ var player_in_range: bool = false
 var is_interacting: bool = false
 
 func _ready():
-	# Connect interaction area signals
-	$InteractionArea.body_entered.connect(_on_player_entered)
-	$InteractionArea.body_exited.connect(_on_player_exited)
-	
-	# Set up interaction area based on interaction_range
 	_setup_interaction_area()
 
 func _setup_interaction_area():
