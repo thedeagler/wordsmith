@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ha0p6f1boiwb" path="res://entities/player/ControllableCharacter2D/ControllableCharacter2D.tscn" id="2_i03sh"]
 [ext_resource type="PackedScene" uid="uid://ctaqqncilvi3e" path="res://nouns/weapon/Melee.tscn" id="3_u886a"]
 [ext_resource type="PackedScene" uid="uid://6og6dc04hfg1" path="res://camera/SmoothFollowCamera.tscn" id="4_seach"]
-[ext_resource type="PackedScene" uid="uid://b8x7lam2n4p5q" path="res://entities/NPC/town_npc/TownNPC.tscn" id="5_townnpc"]
+[ext_resource type="PackedScene" uid="uid://dax8mbl3n5p6r" path="res://entities/NPC/town_npc/TownNPC.tscn" id="6_seach"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i03sh"]
 size = Vector2(11.5, 876)
@@ -36,10 +36,6 @@ movement_speed = 800.0
 [node name="MeleeWeapon" parent="Player" instance=ExtResource("3_u886a")]
 position = Vector2(76, -127)
 
-[node name="SmoothFollowCamera" parent="Player" instance=ExtResource("4_seach")]
-
-[node name="TownNPC" parent="." instance=ExtResource("5_townnpc")]
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="LeftWall" type="CollisionShape2D" parent="StaticBody2D"]
@@ -66,3 +62,11 @@ shape = SubResource("RectangleShape2D_ns20s")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionTrigger"]
 position = Vector2(958, 143)
 shape = SubResource("RectangleShape2D_k1nfj")
+
+[node name="SmoothFollowCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_seach")]
+position = Vector2(-916, 110)
+target = NodePath("../Player")
+bounds_enabled = false
+show_debug_bounds = true
+
+[node name="TownNPC" parent="." instance=ExtResource("6_seach")]
