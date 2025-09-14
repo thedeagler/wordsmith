@@ -1,15 +1,9 @@
 extends Area2D
 class_name MeleeWeapon
 
-<< << << < HEAD
 @export var swing_duration: float = 0.3
 @export var swing_angle: float = 90.0
 @export var damage_amount: int = 50
-== == == =
-@export var swing_duration: float = 0.3 # fixed speed
-@export var swing_angle: float = 90.0 # fixed arc in degrees
-@export var damage_amount: int = 10
->> >> >> > 04d41c8(NPC + interaction)
 
 var swinging: bool = false
 @export var adjectives: Array[AdjectiveData] = []
