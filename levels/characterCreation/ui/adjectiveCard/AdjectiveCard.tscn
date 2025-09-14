@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8x7y2k3m4n5p"]
+[gd_scene load_steps=5 format=3 uid="uid://b8x7y2k3m4n5p"]
 
 [ext_resource type="Script" uid="uid://howsnu8wyhmv" path="res://levels/characterCreation/ui/adjectiveCard/AdjectiveCard.gd" id="1_pwma2"]
-[ext_resource type="Resource" uid="uid://dw208bjax382v" path="res://adjectives/resources/common/Calm.tres" id="2_h2car"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pwma2"]
 bg_color = Color(1, 0.996, 0.98, 1)
@@ -10,12 +9,25 @@ corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2mowf"]
+bg_color = Color(0.5875, 0.25, 1, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2car"]
+bg_color = Color(0, 0.636773, 0.951387, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
 [node name="AdjectiveCard" type="PanelContainer"]
 offset_right = 320.0
 offset_bottom = 161.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_pwma2")
 script = ExtResource("1_pwma2")
-adjective_data = ExtResource("2_h2car")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -48,3 +60,12 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 2
 horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_2mowf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h2car")
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

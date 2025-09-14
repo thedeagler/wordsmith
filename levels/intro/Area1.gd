@@ -28,7 +28,7 @@ func _ready():
 		camera.set_target(character)
 		# Set camera bounds to match level boundary (2 screens wide, 1.5 screens tall)
 		camera.set_bounds(Rect2(0, 0, 3840, 1620))
-	
+		
 	# Connect transition signal
 	if transition_trigger:
 		transition_trigger.body_entered.connect(_on_transition_trigger_entered)
