@@ -1,0 +1,91 @@
+[gd_scene load_steps=4 format=3 uid="uid://bb470ogskouf1"]
+
+[ext_resource type="Script" uid="uid://bsbgyr35ot74l" path="res://UI/inventory/Inventory.gd" id="1_gc0m4"]
+[ext_resource type="Texture2D" uid="uid://yabwf7yludjl" path="res://assets/player derp.png" id="2_nqiy8"]
+[ext_resource type="PackedScene" uid="uid://bpx43sjxe3wec" path="res://UI/inventory/InventorySlot.tscn" id="2_qfesm"]
+
+[node name="Inventory" type="CanvasLayer"]
+script = ExtResource("1_gc0m4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.8028, 16.1997)
+color = Color(0.878431, 0.878431, 0.878431, 0.690196)
+
+[node name="Loadout" type="PanelContainer" parent="."]
+offset_left = 65.0
+offset_top = 112.0
+offset_right = 530.0
+offset_bottom = 605.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Loadout"]
+position = Vector2(399, 211)
+scale = Vector2(2.38266, 2.38266)
+texture = ExtResource("2_nqiy8")
+offset = Vector2(-71.7523, -27.5641)
+
+[node name="MarginContainer" type="MarginContainer" parent="Loadout"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+
+[node name="Label" type="Label" parent="Loadout/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 28
+text = "Loadout"
+horizontal_alignment = 3
+
+[node name="Weapon" parent="Loadout" instance=ExtResource("2_qfesm")]
+position = Vector2(339, 240)
+
+[node name="Armor" parent="Loadout" instance=ExtResource("2_qfesm")]
+position = Vector2(32, 292)
+
+[node name="Boot" parent="Loadout" instance=ExtResource("2_qfesm")]
+position = Vector2(282, 395)
+
+[node name="Line2D" type="Line2D" parent="Loadout"]
+position = Vector2(-36, -1)
+points = PackedVector2Array(256, 332, 158, 332)
+width = 5.0
+default_color = Color(1, 0, 0, 1)
+antialiased = true
+
+[node name="InventoryGrid" type="Panel" parent="."]
+offset_left = 613.0
+offset_top = 112.0
+offset_right = 1077.0
+offset_bottom = 605.0
+
+[node name="MarginContainer" type="MarginContainer" parent="InventoryGrid"]
+layout_mode = 2
+offset_right = 138.0
+offset_bottom = 47.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+
+[node name="Label" type="Label" parent="InventoryGrid/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 28
+text = "Inventory"
+horizontal_alignment = 3
+
+[node name="GridContainer" type="GridContainer" parent="InventoryGrid"]
+layout_mode = 0
+offset_top = 48.0
+offset_right = 463.0
+offset_bottom = 492.0
+
+[node name="MarginContainer" type="MarginContainer" parent="InventoryGrid/GridContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
