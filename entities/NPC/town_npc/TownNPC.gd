@@ -12,6 +12,18 @@ func _ready():
 	# Connect interaction area signals
 	$InteractionArea.body_entered.connect(_on_player_entered)
 	$InteractionArea.body_exited.connect(_on_player_exited)
+	
+	# Set up interaction area based on interaction_range
+	_setup_interaction_area()
+
+func _setup_interaction_area():
+	# Configure the collision shape based on interaction_range
+	var collision_shape = $InteractionArea/CollisionShape2D
+	if collision_shape:
+		# Create a circle shape with the interaction_range as radius
+		var circle_shape = CircleShape2D.new()
+		circle_shape.radius = interaction_range
+		collision_shape.shape = circle_shape
 
 func _input(event):
 	if event.is_action_pressed("interact") and player_in_range and not is_interacting:

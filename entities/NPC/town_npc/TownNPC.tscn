@@ -3,12 +3,12 @@
 [ext_resource type="Script" uid="uid://dt13248xgn6c5" path="res://entities/NPC/town_npc/TownNPC.gd" id="1_townnpc"]
 [ext_resource type="DialogData" uid="uid://c6e0my8gw47m" path="res://entities/NPC/town_npc/enchanter_dialog.tres" id="2_81hvn"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_interaction"]
-radius = 50.0
-height = 100.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_hb82r"]
+radius = 200.0
 
 [node name="TownNPC" type="Node2D" groups=["npc"]]
 script = ExtResource("1_townnpc")
+interaction_range = 200.0
 dialog_data = ExtResource("2_81hvn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -19,7 +19,7 @@ scale = Vector2(0.5, 0.5)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-shape = SubResource("CapsuleShape2D_interaction")
+shape = SubResource("CircleShape2D_hb82r")
 
 [connection signal="body_entered" from="InteractionArea" to="." method="_on_player_entered"]
 [connection signal="body_exited" from="InteractionArea" to="." method="_on_player_exited"]
