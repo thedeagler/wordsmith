@@ -7,9 +7,9 @@ extends Control
 signal dialog_completed
 signal dialog_advanced
 
-@onready var dialog_text: RichTextLabel = $TextContainer/DialogText
-@onready var continue_button: Button = $TextContainer/ContinueButton
-@onready var background: ColorRect = $Background
+@onready var dialog_text: RichTextLabel = $NinePatchRect/DialogText
+@onready var continue_button: Button = $NinePatchRect/ContinueButton
+@onready var background: NinePatchRect = $NinePatchRect
 
 var current_dialog_data: DialogData
 var dialog_visible: bool = false

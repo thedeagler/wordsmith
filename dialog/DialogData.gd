@@ -4,7 +4,7 @@ extends Resource
 ## Resource for storing dialog information
 ## Contains an array of dialog strings and current position
 
-@export var dialog_texts: Array[String] = []
+@export var dialog_texts: PackedStringArray = []
 @export var current_index: int = 0
 @export var speaker_name: String = ""
 

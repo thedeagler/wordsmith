@@ -14,5 +14,3 @@ script = ExtResource("1_1x9k2")
 
 [node name="DialogBox" parent="." instance=ExtResource("2_2x0l3")]
 layout_mode = 1
-grow_horizontal = 2
-grow_vertical = 2
