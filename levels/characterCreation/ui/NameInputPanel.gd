@@ -35,19 +35,19 @@ func _connect_signals():
 func _apply_dark_theme():
 	# Apply dark theme styling as specified in the plan
 	# Title styling
-	title_label.add_theme_color_override("font_color", Color(0.91, 0.91, 0.91))  # Light gray #E8E8E8
+	title_label.add_theme_color_override("font_color", Color(0.91, 0.91, 0.91)) # Light gray #E8E8E8
 	
 	# Input field styling
-	name_input.add_theme_color_override("background_color", Color(0.1, 0.1, 0.1))  # Dark charcoal #1A1A1A
-	name_input.add_theme_color_override("font_color", Color(0.91, 0.91, 0.91))  # Light gray #E8E8E8
-	name_input.add_theme_color_override("font_placeholder_color", Color(0.5, 0.5, 0.5))  # Dimmed gray
+	name_input.add_theme_color_override("background_color", Color(0.1, 0.1, 0.1)) # Dark charcoal #1A1A1A
+	name_input.add_theme_color_override("font_color", Color(0.91, 0.91, 0.91)) # Light gray #E8E8E8
+	name_input.add_theme_color_override("font_placeholder_color", Color(0.5, 0.5, 0.5)) # Dimmed gray
 	
 	# Button styling
-	submit_button.add_theme_color_override("font_color", Color(0.91, 0.91, 0.91))  # Light gray #E8E8E8
-	submit_button.add_theme_color_override("background_color", Color(0.42, 0.27, 0.76))  # Muted purple #6B46C1
+	submit_button.add_theme_color_override("font_color", Color(0.91, 0.91, 0.91)) # Light gray #E8E8E8
+	submit_button.add_theme_color_override("background_color", Color(0.42, 0.27, 0.76)) # Muted purple #6B46C1
 	
 	# Error label styling
-	error_label.add_theme_color_override("font_color", Color(0.86, 0.15, 0.15))  # Muted red #DC2626
+	error_label.add_theme_color_override("font_color", Color(0.86, 0.15, 0.15)) # Muted red #DC2626
 
 func _on_name_input_text_changed(new_text: String):
 	# Real-time validation and button state management
@@ -67,9 +67,9 @@ func _on_submit_button_pressed():
 	# Handle submit button click
 	_submit_name(name_input.text)
 
-func _submit_name(name: String):
+func _submit_name(player_name: String):
 	# Validate and submit the name
-	var trimmed_name = name.strip_edges()
+	var trimmed_name = player_name.strip_edges()
 	
 	if trimmed_name.length() < 1:
 		show_error("Please enter a name")

@@ -31,11 +31,11 @@ func _show_adjective_choices():
 	adjective_container.get_parent().show()
 
 func _on_adjective_card_clicked(adjective_data: AdjectiveData):
-	PlayerData.adjectives.append(adjective_data)
+	PlayerData.noun.adjectives.append(adjective_data)
 	_update_character_description()
 	_refresh_adjective_choices()
 
-	if PlayerData.adjectives.size() >= 3:
+	if PlayerData.noun.adjectives.size() >= 3:
 		adjective_container.get_parent().hide()
 		SceneSwitcher.next_scene(2.5)
 		return
@@ -50,7 +50,7 @@ func _on_name_submitted(p_name: String):
 	if _validate_name(p_name):
 		var player_name = p_name.strip_edges()
 		print("Name submitted: ", player_name)
-		PlayerData.player_name = player_name
+		PlayerData.noun.name = player_name
 		_update_character_description()
 		_show_character_description()
 		name_input_panel.hide()
@@ -59,9 +59,9 @@ func _on_name_submitted(p_name: String):
 		# Validation failed, let the panel handle the error
 		pass
 
-func _validate_name(name: String) -> bool:
+func _validate_name(player_name: String) -> bool:
 	# Validate the entered name according to the plan specifications
-	var trimmed_name = name.strip_edges()
+	var trimmed_name = player_name.strip_edges()
 	
 	# Check length (1-20 characters as per plan)
 	if trimmed_name.length() < 1 or trimmed_name.length() > 20:
@@ -76,14 +76,14 @@ func _validate_name(name: String) -> bool:
 func _update_character_description():
 	# Update the character description label with current name
 	var flava_text = "Behold..."
-	if PlayerData.player_name != "":
-		for i in range(PlayerData.adjectives.size()):
-			var adjective = PlayerData.adjectives[i]
+	if PlayerData.noun.name != "":
+		for i in range(PlayerData.noun.adjectives.size()):
+			var adjective = PlayerData.noun.adjectives[i]
 			flava_text += " " + _styled_adjective(adjective)
-			if i < PlayerData.adjectives.size() - 1:
+			if i < PlayerData.noun.adjectives.size() - 1:
 				flava_text += ","
 
-		flava_text += " " + PlayerData.player_name.capitalize()
+		flava_text += " " + PlayerData.noun.name.capitalize()
 
 	character_description_label.text = flava_text
 
@@ -95,4 +95,4 @@ func _show_character_description():
 	character_description_label.get_parent().get_parent().show()
 	
 	# Emit signal for future use (when adjective selection is implemented)
-	name_submitted.emit(PlayerData.player_name)
+	name_submitted.emit(PlayerData.noun.name)

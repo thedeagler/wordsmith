@@ -1,8 +1,11 @@
 extends Node
 
-var player_name: String
-var adjectives: Array[AdjectiveData] = []
+var noun: NounData
 var inventory: Array
+
+func _ready():
+	noun = NounData.new()
+	inventory = []
 
 func loot_item(resource) -> void:
 	print('Player received: ', resource.word)
