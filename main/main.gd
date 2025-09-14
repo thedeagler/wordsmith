@@ -7,5 +7,5 @@ func _ready():
 	# Later this will check for existing player data
 	# Initialize game data	
 	Utils.load_adjectives()
-	
+	print("Adjectives loaded: ", GameState.adjectives)
 	SceneSwitcher.first_scene()
