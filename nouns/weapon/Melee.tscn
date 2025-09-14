@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctaqqncilvi3e"]
+
+[ext_resource type="Script" uid="uid://bf7vjbwigip2w" path="res://components/Damager.gd" id="1_0ks5e"]
+[ext_resource type="Script" uid="uid://brdhvpbaj2l3k" path="res://nouns/weapon/melee.gd" id="1_5osci"]
+[ext_resource type="Texture2D" uid="uid://c1hy4oycx46ll" path="res://assets/nouns/sword.png" id="2_dr5sk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dr5sk"]
+radius = 71.0
+height = 340.0
+
+[node name="MeleeWeapon" type="Area2D"]
+script = ExtResource("1_5osci")
+
+[node name="Damager" type="Node" parent="."]
+script = ExtResource("1_0ks5e")
+metadata/_custom_type_script = "uid://bf7vjbwigip2w"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -0.467748
+texture = ExtResource("2_dr5sk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, -27)
+shape = SubResource("CapsuleShape2D_dr5sk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
