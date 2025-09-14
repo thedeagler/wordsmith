@@ -3,6 +3,7 @@ class_name TownNPC
 
 @export var npc_name: String = "Enchanter"
 @export var interaction_range: float = 100.0
+@export var dialog_data: DialogData
 
 var player_in_range: bool = false
 var is_interacting: bool = false
@@ -28,8 +29,50 @@ func _on_player_exited(body):
 
 func interact_with_player():
 	is_interacting = true
+	
+	# Show dialog if available, otherwise fall back to enchantment
+	print("dialog_data: ", dialog_data)
+	
+	# Create dialog data if not available or if DialogData class isn't recognized
+	var dialog_to_show = dialog_data
+	if not dialog_to_show or dialog_to_show.dialog_texts.size() == 0:
+		print("Creating fallback dialog data")
+		dialog_to_show = preload("res://dialog/DialogData.gd").new()
+		dialog_to_show.speaker_name = "Enchanter"
+		dialog_to_show.dialog_texts = [
+			"Welcome, traveler! I am the Enchanter.",
+			"I can add magical properties to your weapons and items.",
+			"Bring me an item and I shall enchant it with a random adjective!",
+			"The enchantment will make your item more powerful in battle."
+		]
+	
+	if dialog_to_show and dialog_to_show.dialog_texts.size() > 0:
+		print("should pop up dialog")
+		print("dialog_texts size: ", dialog_to_show.dialog_texts.size())
+		# Create and add dialog box to a CanvasLayer for proper UI rendering
+		var dialog_box = preload("res://dialog/DialogBox.tscn").instantiate()
+		
+		# Create a CanvasLayer for UI elements
+		var canvas_layer = CanvasLayer.new()
+		canvas_layer.layer = 100 # High layer to ensure it's on top
+		get_tree().current_scene.add_child(canvas_layer)
+		canvas_layer.add_child(dialog_box)
+		
+		dialog_box.show_dialog(dialog_to_show)
+		# Connect to dialog completion to handle enchantment
+		dialog_box.dialog_completed.connect(_on_dialog_completed.bind(dialog_box, canvas_layer), CONNECT_ONE_SHOT)
+	else:
+		# Fallback to old behavior
+		add_adjective_to_item()
+		is_interacting = false
+
+func _on_dialog_completed(_dialog_box: DialogBox, canvas_layer: CanvasLayer):
+	# Dialog finished, now perform the enchantment
 	add_adjective_to_item()
 	is_interacting = false
+	# Clean up the dialog box and canvas layer
+	if canvas_layer and is_instance_valid(canvas_layer):
+		canvas_layer.queue_free()
 
 func add_adjective_to_item():
 	var random_adjective = get_random_adjective()
@@ -37,10 +80,9 @@ func add_adjective_to_item():
 	
 	if player_item and player_item.has_method("add_adjective"):
 		player_item.add_adjective(random_adjective)
-		$SpeechBubble.show_text("I've enchanted your item with: " + random_adjective.word)
 		print("Added adjective '", random_adjective.word, "' to player's item")
 	else:
-		$SpeechBubble.show_text("You need an item to enchant!")
+		print("You need an item to enchant!")
 
 func get_random_adjective():
 	# Use existing adjective system
