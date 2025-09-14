@@ -7,7 +7,7 @@ signal name_submitted(name: String)
 
 @onready var name_input_panel = $UI/NameInputPanel
 @onready var adjective_container: HBoxContainer = $UI/AdjectiveContainer/HBoxContainer
-@onready var character_description_label = $UI/CharacterDescriptionLabel/Label
+@onready var character_description_label = %DescriptionLabel
 
 func _ready():
 	# Initialize the scene
@@ -17,7 +17,7 @@ func _ready():
 func _initialize_ui():
 	# Show name input panel initially, hide description label
 	name_input_panel.show_panel()
-	character_description_label.get_parent().hide()
+	character_description_label.get_parent().get_parent().hide()
 	adjective_container.get_parent().hide()
 
 func _connect_signals():
@@ -31,9 +31,18 @@ func _show_adjective_choices():
 	adjective_container.get_parent().show()
 
 func _on_adjective_card_clicked(adjective_data: AdjectiveData):
-	print("Adjective card clicked: ", adjective_data.word)
 	PlayerData.adjectives.append(adjective_data)
 	_update_character_description()
+	_refresh_adjective_choices()
+
+	if PlayerData.adjectives.size() >= 3:
+		adjective_container.get_parent().hide()
+		return
+
+func _refresh_adjective_choices():
+	for card in adjective_container.get_children():
+		if card is AdjectiveCard:
+			card.set_adjective_data(Utils.get_random_adjective())
 
 func _on_name_submitted(p_name: String):
 	# Handle name submission from the input panel
@@ -73,16 +82,16 @@ func _update_character_description():
 			if i < PlayerData.adjectives.size() - 1:
 				flava_text += ","
 
-		flava_text += " " + PlayerData.player_name
+		flava_text += " " + PlayerData.player_name.capitalize()
 
 	character_description_label.text = flava_text
 
 func _styled_adjective(adjective: AdjectiveData) -> String:
-	return "[color=" + adjective.rarity.color.to_html() + "]" + adjective.word + "[/color]"
+	return "[color=" + adjective.rarity.color.to_html() + "]" + adjective.word.to_lower() + "[/color]"
 
 func _show_character_description():
 	# Show the character description label
-	character_description_label.get_parent().show()
+	character_description_label.get_parent().get_parent().show()
 	
 	# Emit signal for future use (when adjective selection is implemented)
 	name_submitted.emit(PlayerData.player_name)
