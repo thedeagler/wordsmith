@@ -40,10 +40,10 @@ static func load_adjectives(base_path: String = "res://adjectives/resources") ->
 # TODO: add secret sauce tier	
 static func get_random_rarity() -> String:
 	var weights = {
-		"common": 70,
+		"common": 22,
 		"rare": 20,
 		"epic": 8,
-		"legendary": 2
+		"legendary": 50
 	}
 
 	var roll = randi_range(1, 100)
