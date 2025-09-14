@@ -10,8 +10,9 @@ var swinging: bool = false
 signal hit(target)
 
 func _ready():
+	body_entered.connect(_on_body_entered)
 	pass
-# Call this every time you want to swing
+	
 func swing(target_position: Vector2):
 	if swinging:
 		return
@@ -36,6 +37,11 @@ func _end_swing(anim_name):
 		swinging = false
 		visible = false
 
+
 func _on_body_entered(body: Node2D) -> void:
 	$Damager.deal_damage(body, damage_amount)
 	emit_signal("hit", body) 
+
+func _on_area_entered(area: Area2D) -> void:
+	$Damager.deal_damage(area, damage_amount)
+	emit_signal("hit", area)  # Replace with function body.

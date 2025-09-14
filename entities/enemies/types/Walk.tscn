@@ -14,11 +14,11 @@ scale = Vector2(1.62009, 1.62009)
 [node name="Label" parent="Panel" index="0"]
 text = "Walk"
 
-[node name="Area2D" parent="." index="2"]
-scale = Vector2(1.62009, 1.62009)
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(44.5, 33)
 
-[node name="CollisionShape2D" parent="Area2D" index="0"]
-position = Vector2(27.5, 20)
+[node name="Damageable" parent="." index="3"]
+unique_name_in_owner = true
 
 [node name="Damager" parent="." index="4"]
 unique_name_in_owner = true

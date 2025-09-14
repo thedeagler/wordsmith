@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://7lss67n68pby" path="res://entities/enemies/enemy_base.gd" id="1_qvmat"]
 [ext_resource type="PackedScene" uid="uid://jukb8qqfulqr" path="res://components/Damageable.tscn" id="2_j3at5"]
+[ext_resource type="Script" uid="uid://b315q6odgbs3d" path="res://entities/enemies/hit_box.gd" id="2_ogbit"]
 [ext_resource type="PackedScene" uid="uid://civ0tpo6xa021" path="res://components/Damager.tscn" id="3_qvmat"]
-[ext_resource type="Script" uid="uid://b1teou4wlluc5" path="res://components/Damageable.gd" id="3_ywgu6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qvmat"]
 content_margin_left = 8.0
@@ -19,7 +19,7 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tghe6"]
-size = Vector2(55, 40)
+size = Vector2(91, 66)
 
 [node name="EnemyBase" type="Node2D" groups=["enemy"]]
 script = ExtResource("1_qvmat")
@@ -39,16 +39,16 @@ theme_override_constants/line_spacing = 0
 theme_override_constants/outline_size = 8
 text = "Verb"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="HitBox" type="Area2D" parent="."]
 collision_layer = 2
+script = ExtResource("2_ogbit")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(26.5, 20)
 shape = SubResource("RectangleShape2D_tghe6")
-script = ExtResource("3_ywgu6")
 
 [node name="Damageable" parent="." instance=ExtResource("2_j3at5")]
 
 [node name="Damager" parent="." instance=ExtResource("3_qvmat")]
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_area_2d_body_entered"]

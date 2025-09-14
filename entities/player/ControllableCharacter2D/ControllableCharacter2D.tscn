@@ -17,4 +17,3 @@ friction = 50.0
 shape = SubResource("RectangleShape2D_1x2y3")
 
 [node name="Damageable" parent="." instance=ExtResource("2_3y1nm")]
-max_health = 50

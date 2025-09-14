@@ -7,7 +7,7 @@ class_name ControllableCharacter2D
 
 func _ready() -> void:
 	var dmgeable = $Damageable
-	dmgeable.entity = self
+	#dmgeable.entisty = self
 
 func _physics_process(delta):
 	handle_movement()

@@ -117,4 +117,5 @@ rotation = 0.799528
 scale = Vector2(0.587572, 0.516322)
 shape = SubResource("CapsuleShape2D_dr5sk")
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
