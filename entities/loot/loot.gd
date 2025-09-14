@@ -6,6 +6,10 @@ class_name	Loot
 func _ready() -> void:
 	if loot.asset:
 		$Sprite2D.texture = loot.asset
+		visualize_rarity()
+		
+func visualize_rarity() -> void:
+	$Sprite2D.modulate = loot.rarity.color
 #			
 func _on_pick_up(body: Node2D) -> void:
 	var floating_text = Label.new()
@@ -19,7 +23,6 @@ func _on_pick_up(body: Node2D) -> void:
 	tween.tween_property(floating_text, "position:y", floating_text.position.y - 20, 2.0)
 	tween.connect("finished", Callable(floating_text, "queue_free"))
 	tween.play()
-	
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	PlayerData.loot_item(loot.resource)

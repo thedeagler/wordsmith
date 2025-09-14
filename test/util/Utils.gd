@@ -110,7 +110,6 @@ static func generate_loot() -> Loot:
 	
 	return loot_instance
 	
-	
 static func spawn_loot(ref) -> void:
 	var loot_instance = Utils.generate_loot()
 	ref.get_tree().current_scene.add_child(loot_instance)
