@@ -7,7 +7,6 @@ var CHARACTER_CREATION_SCENE: String = "res://levels/characterCreation/Character
 func _ready():
 	# For now, redirect to character creation scene
 	# Later this will check for existing player data
-	
 	# Initialize game data	
 	Utils.load_adjectives()
 	
