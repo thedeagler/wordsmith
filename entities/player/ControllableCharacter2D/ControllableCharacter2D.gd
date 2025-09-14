@@ -6,10 +6,9 @@ class_name ControllableCharacter2D
 @export var friction: float = 200.0
 
 func _ready() -> void:
-	var dmgeable = $Damageable
-	#dmgeable.entisty = self
+	pass
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	handle_movement()
 	move_and_slide()
 	if Input.is_action_just_pressed("attack"):

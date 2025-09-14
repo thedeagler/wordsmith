@@ -1,16 +1,15 @@
 extends Area2D
 class_name MeleeWeapon
 
-@export var swing_duration: float = 0.3   # fixed speed
-@export var swing_angle: float = 90.0     # fixed arc in degrees
-@export var damage_amount: int = 10
+@export var swing_duration: float = 0.3
+@export var swing_angle: float = 90.0    
+@export var damage_amount: int = 50
 
 var swinging: bool = false
 
 signal hit(target)
 
 func _ready():
-	body_entered.connect(_on_body_entered)
 	pass
 	
 func swing(target_position: Vector2):
@@ -18,14 +17,13 @@ func swing(target_position: Vector2):
 		return
 	visible = true
 	swinging = true
-	# Calculate angle from parent to target
+	
+	# swings the weapon relative to mouse position
 	var parent_global = get_parent().global_position
 	var direction = (target_position - parent_global).angle()
 
-	# Set start and end rotation relative to parent
 	var half_arc = deg_to_rad(swing_angle / 2)
 	var start_rot = direction - half_arc
-	var end_rot = direction + half_arc
 
 	rotation = start_rot
 
@@ -44,4 +42,4 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	$Damager.deal_damage(area, damage_amount)
-	emit_signal("hit", area)  # Replace with function body.
+	emit_signal("hit", area) 

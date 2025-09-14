@@ -40,10 +40,10 @@ static func load_adjectives(base_path: String = "res://adjectives/resources") ->
 # TODO: add secret sauce tier	
 static func get_random_rarity() -> String:
 	var weights = {
-		"common": 22,
+		"common": 70,
 		"rare": 20,
-		"epic": 8,
-		"legendary": 50
+		"epic": 7,
+		"legendary": 3
 	}
 
 	var roll = randi_range(1, 100)
@@ -55,8 +55,63 @@ static func get_random_rarity() -> String:
 			return rarity
 	return "common"
 	
+static func get_random_part_of_speech() -> String:
+	var weights = {
+		"adj": 100,
+		#"adj": 70,
+		#"noun": 30,
+	}
+
+	var roll = randi_range(1, 100)
+	var cumulative = 0
+
+	for partOfSpeech in weights.keys():
+		cumulative += weights[partOfSpeech]
+		if roll <= cumulative:
+			return partOfSpeech
+	return "adj"
+	
 static func get_random_adjective() -> AdjectiveData:
 	var rarity = get_random_rarity()
 	var random_index = randi_range(0, GameState.adjectives[rarity].size() - 1)
 	var random_adjective = GameState.adjectives[rarity][random_index];
 	return random_adjective
+
+#todo: nouns and interjection generation
+#static func get_random_noun() -> NounData:
+	#var rarity = get_random_rarity()
+	#var random_index = randi_range(0, GameState.nouns[rarity].size() - 1)
+	#var random_noun = GameState.nouns[rarity][random_index];
+	#return random_noun
+
+static func generate_loot() -> Loot:
+#	TODO: write a roll for chance to drop loot?
+	var partOfSpeech = Utils.get_random_part_of_speech()
+	var rnd_item
+	var loot_data = LootData.new()
+	loot_data.partOfSpeech = partOfSpeech
+	
+	if partOfSpeech == "adj":
+		rnd_item = Utils.get_random_adjective()
+		loot_data.resource = rnd_item
+		loot_data.asset = preload("res://assets/adj/FFRK_Silence_Status_Icon.webp")
+	elif partOfSpeech == "noun":
+		# TODO handle nouns
+		pass
+	elif partOfSpeech == "interjections":
+		# TODO handle interjections
+		pass
+		
+	loot_data.word = rnd_item.word
+	loot_data.rarity = rnd_item.rarity
+	var loot_scene: PackedScene = preload("res://entities/loot/Loot.tscn")
+	var loot_instance = loot_scene.instantiate()
+	loot_instance.loot = loot_data 
+	
+	return loot_instance
+	
+	
+static func spawn_loot(ref) -> void:
+	var loot_instance = Utils.generate_loot()
+	ref.get_tree().current_scene.add_child(loot_instance)
+	loot_instance.global_position = ref.global_position

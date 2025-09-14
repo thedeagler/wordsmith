@@ -9,10 +9,19 @@
 script = ExtResource("2_enjaj")
 
 [node name="Panel" parent="." index="1"]
+offset_left = -45.0
+offset_top = -33.0
+offset_right = 10.0
+offset_bottom = 7.0
 scale = Vector2(1.62009, 1.62009)
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="Label" parent="Panel" index="0"]
 text = "Walk"
+
+[node name="HitBox" parent="." index="2"]
+position = Vector2(-45, -33)
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2(44.5, 33)
