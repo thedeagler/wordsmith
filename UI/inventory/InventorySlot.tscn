@@ -22,19 +22,15 @@ offset_right = 82.0
 offset_bottom = 74.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_rsb5q")
 
-[node name="TextureRect" type="TextureRect" parent="ColorRect"]
-layout_mode = 0
-offset_right = 82.0
-offset_bottom = 80.0
-stretch_mode = 2
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect"]
+unique_name_in_owner = true
 
-[node name="Label" type="Label" parent="ColorRect/TextureRect"]
-layout_mode = 1
+[node name="Label" type="Label" parent="ColorRect/Sprite2D"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -42.0
-offset_right = 42.0
+offset_left = -1.5
+offset_right = 82.5
 offset_bottom = 23.0
 grow_horizontal = 2
 size_flags_horizontal = 4
@@ -44,3 +40,4 @@ theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 14
 text = "Item Name"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true

@@ -9,9 +9,10 @@ var slot_scene := preload("res://ui/inventory/InventorySlot.tscn")
 
 func _ready() -> void:
 	PlayerData.inventory_update.connect(populate_inventory)
-	populate_inventory(PlayerData.inventory)
+	populate_inventory(PlayerData.nounInventory)
 
 func populate_inventory(inventory_items: Array):
+	print('pop inv', inventory_items)
 	for child in grid_container.get_children():
 		child.queue_free()
 		

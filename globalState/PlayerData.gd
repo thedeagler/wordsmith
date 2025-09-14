@@ -2,18 +2,15 @@ extends Node
 
 var player_name: String
 var adjectives: Array[AdjectiveData] = []
-var inventory: Array
+var adjInventory: Array = [AdjectiveData]
+var nounInventory: Array = [NounData]
 
 func loot_item(resource) -> void:
 	print('Player received: ', resource.word)
-	inventory.append(resource)
+	if resource is AdjectiveData:
+		adjInventory.append(resource)
+	elif resource is NounData:
+		nounInventory.append(resource)		
+	emit_signal("inventory_update")	
 
 signal inventory_update
-
-func add_to_inventory(item):
-	inventory.append(item)
-	emit_signal("inventory_update")
-
-func remove_from_inventory(item):
-	inventory.erase(item)
-	emit_signal("inventory_update")
