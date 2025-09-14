@@ -23,9 +23,8 @@ func _ready():
 	
 	# Set up camera following
 	if camera and player:
-		# Target the ControllableCharacter2D for proper movement following
-		var character = player.get_node("ControllableCharacter2D")
-		camera.set_target(character)
+		# Target the player (which is the ControllableCharacter2D) for proper movement following
+		camera.set_target(player)
 		# Set camera bounds to match level boundary (2 screens wide, 1.5 screens tall)
 		camera.set_bounds(Rect2(0, 0, 3840, 1620))
 		
@@ -36,9 +35,8 @@ func _ready():
 # Handle transition to Area 2
 func _on_transition_trigger_entered(body):
 	print("Something entered transition area: ", body.name if body else "null")
-	# Check if it's the player or the ControllableCharacter2D
-	var character = player.get_node("ControllableCharacter2D")
-	if body == player or body == character:
+	# Check if it's the player (which is the ControllableCharacter2D)
+	if body == player:
 		print("Player reached transition area! Transitioning to Area 2...")
 		# Signal that transition should occur
 		# This will be handled by the level manager

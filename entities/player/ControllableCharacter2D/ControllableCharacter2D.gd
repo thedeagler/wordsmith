@@ -44,3 +44,7 @@ func handle_movement():
 		
 func on_damaged(amount: int, _source) -> void:
 	print('ow', amount)
+
+func get_current_item():
+	# Return the current equipped weapon/item
+	return $MeleeWeapon

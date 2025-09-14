@@ -1,0 +1,11 @@
+[gd_resource type="DialogData" script_class="DialogData" load_steps=2 format=3 uid="uid://c6e0my8gw47m"]
+
+[ext_resource type="Script" uid="uid://bl41ucynhl24j" path="res://dialog/DialogData.gd" id="1_0x8k2"]
+
+[resource]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("1_0x8k2")
+dialog_texts = PackedStringArray("Welcome, traveler! I am the Enchanter.", "I can add magical properties to your weapons and items.", "Bring me an item and I shall enchant it with a random adjective!", "The enchantment will make your item more powerful in battle.")
+current_index = 0
+speaker_name = "Enchanter"

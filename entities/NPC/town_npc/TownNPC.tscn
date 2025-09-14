@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dax8mbl3n5p6r"]
+
+[ext_resource type="Script" uid="uid://dt13248xgn6c5" path="res://entities/NPC/town_npc/TownNPC.gd" id="1_townnpc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hb82r"]
+radius = 200.0
+
+[node name="TownNPC" type="Node2D" groups=["npc"]]
+script = ExtResource("1_townnpc")
+interaction_range = 200.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -25)
+scale = Vector2(0.5, 0.5)
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_hb82r")
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_player_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_player_exited"]
