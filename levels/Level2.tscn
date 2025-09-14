@@ -1,12 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://drr1hb7hxuukq"]
+[gd_scene load_steps=4 format=3 uid="uid://bla52co6lx4ed"]
 
 [ext_resource type="PackedScene" uid="uid://bqx8y7v8lam2n" path="res://levels/intro/Area1.tscn" id="1_gljt1"]
+[ext_resource type="Texture2D" uid="uid://cekp2b71gtj3a" path="res://assets/battle backgrounds/PNG/3/castle.png" id="2_f5x84"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5x84"]
+size = Vector2(201, 185)
 
 [node name="Level2" type="Node2D"]
 
 [node name="Area1" parent="." instance=ExtResource("1_gljt1")]
 
 [node name="Background" parent="Area1" index="0"]
-modulate = Color(0.96, 0.91584, 0.8448, 1)
+texture = ExtResource("2_f5x84")
+
+[node name="Ceiling" parent="Area1/Boundaries" index="3"]
+position = Vector2(1876, 562)
+
+[node name="CollisionShape2D" parent="Area1/TransitionTrigger" index="0"]
+position = Vector2(-2317, -296)
+shape = SubResource("RectangleShape2D_f5x84")
 
 [editable path="Area1"]

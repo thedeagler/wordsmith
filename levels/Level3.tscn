@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgeydvfk6c0u4"]
+[gd_scene load_steps=2 format=3 uid="uid://ql6ynxc3mrjl"]
 
 [ext_resource type="PackedScene" uid="uid://bqx8y7v8lam2n" path="res://levels/intro/Area1.tscn" id="1_gq8fh"]
 
@@ -6,7 +6,10 @@
 
 [node name="Area1" parent="." instance=ExtResource("1_gq8fh")]
 
-[node name="Background" parent="Area1" index="0"]
-modulate = Color(0.869333, 1, 0.86, 1)
+[node name="Ceiling" parent="Area1/Boundaries" index="3"]
+position = Vector2(1875, 544)
+
+[node name="CollisionShape2D" parent="Area1/TransitionTrigger" index="0"]
+position = Vector2(-1371, -153.5)
 
 [editable path="Area1"]

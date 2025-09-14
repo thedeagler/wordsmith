@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv4fgqjvs1dv7"]
+
+[ext_resource type="PackedScene" uid="uid://bqx8y7v8lam2n" path="res://levels/intro/Area1.tscn" id="1_rcoek"]
+[ext_resource type="Texture2D" uid="uid://cuqnckd8r2s0k" path="res://assets/battle backgrounds/PNG/2/throne room.png" id="2_j8diy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j8diy"]
+size = Vector2(86, 634)
+
+[node name="Level4" type="Node2D"]
+
+[node name="Level" parent="." instance=ExtResource("1_rcoek")]
+
+[node name="Background" parent="Level" index="0"]
+texture = ExtResource("2_j8diy")
+
+[node name="Ceiling" parent="Level/Boundaries" index="3"]
+position = Vector2(1877, 600)
+
+[node name="CollisionShape2D" parent="Level/TransitionTrigger" index="0"]
+position = Vector2(-1371, 116)
+shape = SubResource("RectangleShape2D_j8diy")
+
+[editable path="Level"]

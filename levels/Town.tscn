@@ -1,0 +1,65 @@
+[gd_scene load_steps=11 format=3 uid="uid://bevtlxxbaf56e"]
+
+[ext_resource type="Script" uid="uid://cvnlfdsqrsgpj" path="res://levels/intro/Area1.gd" id="1_u886a"]
+[ext_resource type="Texture2D" uid="uid://c1f8t4ay0dxb2" path="res://assets/nature backgrounds/PNG/spring/6.png" id="1_wh5ye"]
+[ext_resource type="PackedScene" uid="uid://ha0p6f1boiwb" path="res://entities/player/ControllableCharacter2D/ControllableCharacter2D.tscn" id="2_i03sh"]
+[ext_resource type="PackedScene" uid="uid://ctaqqncilvi3e" path="res://nouns/weapon/Melee.tscn" id="3_u886a"]
+[ext_resource type="PackedScene" uid="uid://6og6dc04hfg1" path="res://camera/SmoothFollowCamera.tscn" id="4_seach"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i03sh"]
+size = Vector2(11.5, 876)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u886a"]
+size = Vector2(616, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_seach"]
+size = Vector2(960, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ns20s"]
+size = Vector2(3.63637, 803)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1nfj"]
+size = Vector2(41, 848)
+
+[node name="Town" type="Node2D"]
+script = ExtResource("1_u886a")
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_wh5ye")
+
+[node name="Player" parent="." instance=ExtResource("2_i03sh")]
+position = Vector2(-916, 110)
+movement_speed = 800.0
+
+[node name="MeleeWeapon" parent="Player" instance=ExtResource("3_u886a")]
+position = Vector2(76, -127)
+
+[node name="SmoothFollowCamera" parent="Player" instance=ExtResource("4_seach")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="LeftWall" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-964.75, 118)
+shape = SubResource("RectangleShape2D_i03sh")
+
+[node name="BottomWall" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(25, 544)
+scale = Vector2(3.24, 1)
+shape = SubResource("RectangleShape2D_u886a")
+
+[node name="TopWall" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-2, -244)
+scale = Vector2(2.2, 1)
+shape = SubResource("RectangleShape2D_seach")
+
+[node name="RightWall" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(961, 140)
+scale = Vector2(2.2, 1)
+shape = SubResource("RectangleShape2D_ns20s")
+
+[node name="TransitionTrigger" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionTrigger"]
+position = Vector2(958, 143)
+shape = SubResource("RectangleShape2D_k1nfj")

@@ -1,10 +1,40 @@
-[gd_scene load_steps=2 format=3 uid="uid://bd2avahboy4rp"]
+[gd_scene load_steps=4 format=3 uid="uid://dqkkiwrihuhds"]
 
 [ext_resource type="PackedScene" uid="uid://bqx8y7v8lam2n" path="res://levels/intro/Area1.tscn" id="1_b84ys"]
+[ext_resource type="Texture2D" uid="uid://ckqr7aolqep2i" path="res://assets/battle backgrounds/PNG/4/dead forest.png" id="2_32mhh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_32mhh"]
+size = Vector2(86, 691)
 
 [node name="Level1" type="Node2D"]
 
 [node name="Area1" parent="." instance=ExtResource("1_b84ys")]
 position = Vector2(2694.17, 521.409)
+
+[node name="Background" parent="Area1" index="0"]
+position = Vector2(735.83, 743.591)
+texture = ExtResource("2_32mhh")
+
+[node name="LeftWall" parent="Area1/Boundaries" index="0"]
+position = Vector2(-224.17, 634.193)
+
+[node name="RightWall" parent="Area1/Boundaries" index="1"]
+position = Vector2(1678.83, 816.591)
+
+[node name="Ground" parent="Area1/Boundaries" index="2"]
+position = Vector2(850.83, 1285.59)
+
+[node name="Ceiling" parent="Area1/Boundaries" index="3"]
+position = Vector2(1053.83, 606.591)
+
+[node name="Player" parent="Area1" index="2"]
+position = Vector2(-184.17, 766.591)
+
+[node name="Walk" parent="Area1" index="3"]
+position = Vector2(241.83, 750.591)
+
+[node name="CollisionShape2D" parent="Area1/TransitionTrigger" index="0"]
+position = Vector2(-1950.17, 146.091)
+shape = SubResource("RectangleShape2D_32mhh")
 
 [editable path="Area1"]
