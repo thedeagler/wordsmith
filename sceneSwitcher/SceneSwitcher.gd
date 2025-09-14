@@ -18,6 +18,10 @@ func next_scene(afterSeconds: float = 0):
 	if current_scene >= SCENE_LIST.size():
 		return
 
+	if current_scene == 0:
+		# get current scene and find its index in the SCENE_LIST. + 1 to go to the next scene
+		current_scene = SCENE_LIST.find(get_tree().current_scene.name) + 1
+
 	if afterSeconds > 0:
 		await get_tree().create_timer(afterSeconds).timeout
 
