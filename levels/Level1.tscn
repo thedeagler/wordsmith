@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd2avahboy4rp"]
+
+[ext_resource type="PackedScene" uid="uid://bqx8y7v8lam2n" path="res://levels/intro/Area1.tscn" id="1_b84ys"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Area1" parent="." instance=ExtResource("1_b84ys")]
+position = Vector2(2694.17, 521.409)
+
+[editable path="Area1"]

@@ -21,6 +21,10 @@ PlayerData="*res://globalState/PlayerData.gd"
 GameState="*res://globalState/GameState.gd"
 SceneSwitcher="*res://sceneSwitcher/SceneSwitcher.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [global_group]
 
 player=""

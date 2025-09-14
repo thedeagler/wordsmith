@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgeydvfk6c0u4"]
+
+[ext_resource type="PackedScene" uid="uid://bqx8y7v8lam2n" path="res://levels/intro/Area1.tscn" id="1_gq8fh"]
+
+[node name="Level2" type="Node2D"]
+
+[node name="Area1" parent="." instance=ExtResource("1_gq8fh")]
+
+[node name="Background" parent="Area1" index="0"]
+modulate = Color(0.869333, 1, 0.86, 1)
+
+[editable path="Area1"]

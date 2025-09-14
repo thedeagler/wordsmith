@@ -42,6 +42,6 @@ func _on_transition_trigger_entered(body):
 		print("Player reached transition area! Transitioning to Area 2...")
 		# Signal that transition should occur
 		# This will be handled by the level manager
-		get_tree().call_group("level_manager", "transition_to_area2")
+		SceneSwitcher.next_scene()
 	else:
 		print("Not the player, it was: ", body.name if body else "null")
