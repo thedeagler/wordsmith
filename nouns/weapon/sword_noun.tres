@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NounData" load_steps=3 format=3 uid="uid://dnbgaq4mnusod"]
+
+[ext_resource type="Script" uid="uid://sr5ahp7rsj1w" path="res://adjectives/AdjectiveData.gd" id="1_au5xm"]
+[ext_resource type="Script" uid="uid://16g6raca2bor" path="res://nouns/resource/NounData.gd" id="2_3f2mf"]
+
+[resource]
+script = ExtResource("2_3f2mf")
+name = "sword"
+is_proper_noun = false
+adjectives = Array[ExtResource("1_au5xm")]([])
