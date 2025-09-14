@@ -37,6 +37,7 @@ func _on_adjective_card_clicked(adjective_data: AdjectiveData):
 
 	if PlayerData.adjectives.size() >= 3:
 		adjective_container.get_parent().hide()
+		SceneSwitcher.next_scene(2.5)
 		return
 
 func _refresh_adjective_choices():

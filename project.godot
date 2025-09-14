@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 PlayerData="*res://globalState/PlayerData.gd"
 GameState="*res://globalState/GameState.gd"
+SceneSwitcher="*res://sceneSwitcher/SceneSwitcher.gd"
 
 [global_group]
 

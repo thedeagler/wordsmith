@@ -11,9 +11,6 @@ signal card_clicked(adjective_data: AdjectiveData)
 func _ready():
 	adjective_data = Utils.get_random_adjective()
 	update_display()
-	
-	# Connect button signals
-	button.pressed.connect(_on_button_pressed)
 
 func set_adjective_data(data: AdjectiveData):
 	adjective_data = data
