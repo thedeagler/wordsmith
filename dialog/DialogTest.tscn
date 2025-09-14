@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7lax2m5n6p8"]
+
+[ext_resource type="Script" uid="uid://ciq23p3x3jbaf" path="res://dialog/DialogTest.gd" id="1_1x9k2"]
+[ext_resource type="PackedScene" uid="uid://bqj8x7k2m3n4o" path="res://dialog/DialogBox.tscn" id="2_2x0l3"]
+
+[node name="DialogTest" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1x9k2")
+
+[node name="DialogBox" parent="." instance=ExtResource("2_2x0l3")]
+layout_mode = 1
+grow_horizontal = 2
+grow_vertical = 2

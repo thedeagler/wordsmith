@@ -1,0 +1,96 @@
+# Dialog Box Scene Plan
+
+## Overview
+Create a basic dialog box scene for displaying text conversations in the game. This will be a simple, static dialog system without animations.
+
+## Scene Structure
+
+### Main Dialog Scene (`DialogBox.tscn`)
+- **Root Node**: Control (for UI layout)
+- **Background**: NinePatchRect or ColorRect for dialog box background
+- **Text Container**: VBoxContainer for text layout
+- **Text Label**: RichTextLabel for displaying dialog text
+- **Continue Button**: Button for advancing dialog
+
+### Node Hierarchy
+```
+DialogBox (Control)
+├── Background (NinePatchRect/ColorRect)
+├── TextContainer (VBoxContainer)
+│   ├── DialogText (RichTextLabel)
+│   └── ContinueButton (Button)
+```
+
+## Script Components
+
+### DialogBox.gd
+- **Purpose**: Main dialog controller
+- **Key Functions**:
+  - `show_dialog(text: String)` - Display dialog text
+  - `hide_dialog()` - Hide dialog box
+  - `next_dialog()` - Advance to next dialog
+  - `_on_continue_pressed()` - Handle continue button
+
+### DialogData.gd (Resource)
+- **Purpose**: Store dialog data
+- **Properties**:
+  - `dialog_texts: Array[String]` - Array of dialog strings
+  - `current_index: int` - Current dialog index
+  - `speaker_name: String` - Name of speaker (optional)
+
+## UI Design
+
+### Visual Elements
+- **Background**: Semi-transparent dark rectangle
+- **Text Area**: White/light background for text readability
+- **Font**: Use project's Alien Font for consistency
+- **Colors**: Match game's color scheme
+- **Positioning**: Bottom-center of screen
+
+### Layout Specifications
+- **Dialog Box Size**: 80% screen width, 25% screen height
+- **Margins**: 10% from screen edges
+- **Text Padding**: 20px on all sides
+- **Button**: Right-aligned at bottom of text area
+
+## Implementation Steps
+
+1. **Create DialogBox Scene**
+   - Set up node hierarchy
+   - Configure UI layout and anchoring
+   - Apply visual styling
+
+2. **Create DialogBox Script**
+   - Implement basic dialog display logic
+   - Add continue button functionality
+   - Handle dialog state management
+
+3. **Create DialogData Resource**
+   - Define dialog data structure
+   - Add utility functions for dialog management
+
+4. **Integration**
+   - Add dialog box to main scenes
+   - Connect to game events
+   - Test basic functionality
+
+## Usage Example
+
+```gdscript
+# In a scene script
+var dialog_box = preload("res://dialog/DialogBox.tscn").instantiate()
+add_child(dialog_box)
+
+# Show dialog
+var dialog_data = DialogData.new()
+dialog_data.dialog_texts = ["Hello!", "How are you?", "Nice to meet you!"]
+dialog_box.show_dialog(dialog_data)
+```
+
+## Future Enhancements (Not in Scope)
+- Text typing animation
+- Character portraits
+- Dialog choices
+- Auto-advance timer
+- Sound effects
+- Dialog history
