@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bevtlxxbaf56e"]
+[gd_scene load_steps=12 format=3 uid="uid://bevtlxxbaf56e"]
 
 [ext_resource type="Script" uid="uid://cvnlfdsqrsgpj" path="res://levels/intro/Area1.gd" id="1_u886a"]
 [ext_resource type="Texture2D" uid="uid://c1f8t4ay0dxb2" path="res://assets/nature backgrounds/PNG/spring/6.png" id="1_wh5ye"]
 [ext_resource type="PackedScene" uid="uid://ha0p6f1boiwb" path="res://entities/player/ControllableCharacter2D/ControllableCharacter2D.tscn" id="2_i03sh"]
 [ext_resource type="PackedScene" uid="uid://ctaqqncilvi3e" path="res://nouns/weapon/Melee.tscn" id="3_u886a"]
 [ext_resource type="PackedScene" uid="uid://6og6dc04hfg1" path="res://camera/SmoothFollowCamera.tscn" id="4_seach"]
+[ext_resource type="PackedScene" uid="uid://b8x7lam2n4p5q" path="res://entities/NPC/town_npc/TownNPC.tscn" id="5_townnpc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i03sh"]
 size = Vector2(11.5, 876)
@@ -36,6 +37,8 @@ movement_speed = 800.0
 position = Vector2(76, -127)
 
 [node name="SmoothFollowCamera" parent="Player" instance=ExtResource("4_seach")]
+
+[node name="TownNPC" parent="." instance=ExtResource("5_townnpc")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

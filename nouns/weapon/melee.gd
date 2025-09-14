@@ -1,11 +1,18 @@
 extends Area2D
 class_name MeleeWeapon
 
+<< << << < HEAD
 @export var swing_duration: float = 0.3
-@export var swing_angle: float = 90.0    
+@export var swing_angle: float = 90.0
 @export var damage_amount: int = 50
+== == == =
+@export var swing_duration: float = 0.3 # fixed speed
+@export var swing_angle: float = 90.0 # fixed arc in degrees
+@export var damage_amount: int = 10
+>> >> >> > 04d41c8(NPC + interaction)
 
 var swinging: bool = false
+@export var adjectives: Array[AdjectiveData] = []
 
 signal hit(target)
 
@@ -38,8 +45,12 @@ func _end_swing(anim_name):
 
 func _on_body_entered(body: Node2D) -> void:
 	$Damager.deal_damage(body, damage_amount)
-	emit_signal("hit", body) 
+	emit_signal("hit", body)
 
 func _on_area_entered(area: Area2D) -> void:
 	$Damager.deal_damage(area, damage_amount)
-	emit_signal("hit", area) 
+	emit_signal("hit", area)
+
+func add_adjective(adjective: AdjectiveData):
+	adjectives.append(adjective)
+	print("Added adjective '", adjective.word, "' to weapon. Total adjectives: ", adjectives.size())
