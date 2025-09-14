@@ -1,12 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://ctaqqncilvi3e"]
 
-[ext_resource type="Script" uid="uid://bf7vjbwigip2w" path="res://components/Damager.gd" id="1_0ks5e"]
 [ext_resource type="Script" uid="uid://brdhvpbaj2l3k" path="res://nouns/weapon/melee.gd" id="1_5osci"]
 [ext_resource type="Texture2D" uid="uid://c1hy4oycx46ll" path="res://assets/nouns/sword.png" id="2_dr5sk"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dr5sk"]
-radius = 71.0
-height = 340.0
+[ext_resource type="PackedScene" uid="uid://civ0tpo6xa021" path="res://components/Damager.tscn" id="3_5osci"]
 
 [sub_resource type="Animation" id="Animation_5osci"]
 resource_name = "swing"
@@ -37,7 +33,8 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_5iwqa"]
-length = 0.001
+length = 0.2
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -45,10 +42,10 @@ tracks/0/path = NodePath("Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.0333333, 0.06, 0.11),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-123, 93)]
+"values": [Vector2(-99, 79), Vector2(-10.2506, 109.018), Vector2(85, 86), Vector2(100.259, -125.782)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -57,10 +54,34 @@ tracks/1/path = NodePath("Sprite2D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.0333333, 0.06, 0.11),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [-5.93164]
+"values": [-2.81193, -3.5864, -4.39128, -6.05607]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.06, 0.11),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-106, 85), Vector2(-13.6474, 115.763), Vector2(85.3478, 93.5177), Vector2(100.607, -118.264)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.06, 0.11),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.799528, 0.0250569, -0.779822, -2.44461]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8ldiy"]
@@ -69,33 +90,31 @@ _data = {
 &"swing": SubResource("Animation_5osci")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dr5sk"]
+radius = 71.0
+height = 340.0
+
 [node name="MeleeWeapon" type="Area2D"]
-visible = false
+collision_mask = 2
 script = ExtResource("1_5osci")
 
-[node name="Damager" type="Node" parent="."]
-script = ExtResource("1_0ks5e")
-metadata/_custom_type_script = "uid://bf7vjbwigip2w"
+[node name="Damager" parent="." instance=ExtResource("3_5osci")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-123, 93)
-rotation = -5.93164
+position = Vector2(-99, 79)
+rotation = -2.81193
 scale = Vector2(0.529723, 0.529723)
 texture = ExtResource("2_dr5sk")
-
-[node name="Area2D" type="Area2D" parent="Sprite2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
-unique_name_in_owner = true
-position = Vector2(14.4178, -15.9816)
-rotation = 0.467748
-scale = Vector2(1.10921, 0.974702)
-shape = SubResource("CapsuleShape2D_dr5sk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_8ldiy")
 }
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-106, 85)
+rotation = 0.799528
+scale = Vector2(0.587572, 0.516322)
+shape = SubResource("CapsuleShape2D_dr5sk")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]

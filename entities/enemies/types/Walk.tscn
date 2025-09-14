@@ -5,23 +5,20 @@
 
 [node name="Walk" instance=ExtResource("1_qf1av")]
 
-[node name="Damager" parent="." index="0"]
-unique_name_in_owner = true
-
-[node name="Damageable" parent="." index="1"]
-unique_name_in_owner = true
-
-[node name="AI" parent="." index="2"]
+[node name="AI" parent="." index="0"]
 script = ExtResource("2_enjaj")
 
-[node name="Panel" parent="." index="3"]
+[node name="Panel" parent="." index="1"]
 scale = Vector2(1.62009, 1.62009)
 
 [node name="Label" parent="Panel" index="0"]
 text = "Walk"
 
-[node name="Area2D" parent="." index="4"]
+[node name="Area2D" parent="." index="2"]
 scale = Vector2(1.62009, 1.62009)
 
 [node name="CollisionShape2D" parent="Area2D" index="0"]
 position = Vector2(27.5, 20)
+
+[node name="Damager" parent="." index="4"]
+unique_name_in_owner = true

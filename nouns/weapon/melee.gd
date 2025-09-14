@@ -1,19 +1,16 @@
 extends Area2D
 class_name MeleeWeapon
 
-@export var swing_duration: float = 0.2   # fixed speed
+@export var swing_duration: float = 0.3   # fixed speed
 @export var swing_angle: float = 90.0     # fixed arc in degrees
-@export var damage_amount: int = 1
+@export var damage_amount: int = 10
 
 var swinging: bool = false
 
 signal hit(target)
 
 func _ready():
-	# disable collision by default
-	%CollisionShape2D.disabled = true
-	connect("body_entered", Callable(self, "_on_body_entered"))
-
+	pass
 # Call this every time you want to swing
 func swing(target_position: Vector2):
 	if swinging:
@@ -30,18 +27,15 @@ func swing(target_position: Vector2):
 	var end_rot = direction + half_arc
 
 	rotation = start_rot
-	%CollisionShape2D.disabled = false
 
-	$AnimationPlayer.play("swing")
+	$AnimationPlayer.play("RESET")
 	$AnimationPlayer.animation_finished.connect(_end_swing)
 
 func _end_swing(anim_name):
-	if anim_name == "swing":
-		%CollisionShape2D.disabled = true
+	if anim_name == "RESET":
 		swinging = false
 		visible = false
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if swinging:
-		$Damager.deal_damage(body, damage_amount)
-		emit_signal("hit", body)
+func _on_body_entered(body: Node2D) -> void:
+	$Damager.deal_damage(body, damage_amount)
+	emit_signal("hit", body) 

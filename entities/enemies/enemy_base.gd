@@ -5,17 +5,19 @@ extends Node2D
 var target: Node2D = null
 
 func _ready():
-	$Damageable.damaged.connect(_on_enemy_damaged)
-	$Damageable.died.connect(_on_enemy_died)
+	var dmgeable = $Damageable
+	dmgeable.entity = self
+	$Damageable.damaged.connect(on_damaged)
+	$Damageable.died.connect(on_died)
 
 func _physics_process(delta):
 	if $AI.has_method("_tick_ai"):
 		$AI._tick_ai(delta, self, target)
 
-func _on_enemy_damaged(amount, source):
+func on_damaged(amount, source):
 	print("Enemy took damage: %s from %s" % [amount, source])
 
-func _on_enemy_died(source):
+func on_died(source):
 	print("Enemy died to: %s" % source)
 	queue_free()
 
