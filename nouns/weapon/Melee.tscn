@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctaqqncilvi3e"]
+[gd_scene load_steps=8 format=3 uid="uid://ctaqqncilvi3e"]
 
 [ext_resource type="Script" uid="uid://bf7vjbwigip2w" path="res://components/Damager.gd" id="1_0ks5e"]
 [ext_resource type="Script" uid="uid://brdhvpbaj2l3k" path="res://nouns/weapon/melee.gd" id="1_5osci"]
@@ -8,7 +8,69 @@
 radius = 71.0
 height = 340.0
 
+[sub_resource type="Animation" id="Animation_5osci"]
+resource_name = "swing"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-123, 93), Vector2(77, 80), Vector2(121, -125)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-2.68532, -4.34462, -5.98295]
+}
+
+[sub_resource type="Animation" id="Animation_5iwqa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-123, 93)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-5.93164]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ldiy"]
+_data = {
+&"RESET": SubResource("Animation_5iwqa"),
+&"swing": SubResource("Animation_5osci")
+}
+
 [node name="MeleeWeapon" type="Area2D"]
+visible = false
 script = ExtResource("1_5osci")
 
 [node name="Damager" type="Node" parent="."]
@@ -16,11 +78,24 @@ script = ExtResource("1_0ks5e")
 metadata/_custom_type_script = "uid://bf7vjbwigip2w"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = -0.467748
+position = Vector2(-123, 93)
+rotation = -5.93164
+scale = Vector2(0.529723, 0.529723)
 texture = ExtResource("2_dr5sk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, -27)
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+unique_name_in_owner = true
+position = Vector2(14.4178, -15.9816)
+rotation = 0.467748
+scale = Vector2(1.10921, 0.974702)
 shape = SubResource("CapsuleShape2D_dr5sk")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8ldiy")
+}
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]

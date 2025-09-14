@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://qrvyujcja5ib" path="res://camera/SmoothFollowCamera.gd" id="1_0x8k2"]
 
 [node name="SmoothFollowCamera" type="Camera2D"]
+zoom = Vector2(0.8, 0.8)
 script = ExtResource("1_0x8k2")

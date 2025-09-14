@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://b1teou4wlluc5" path="res://components/Damageable.gd" id="2_ftt42"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1x2y3"]
-size = Vector2(44, 78)
+size = Vector2(76, 152)
 
 [node name="ControllableCharacter2D" type="CharacterBody2D" groups=["player"]]
 position = Vector2(192, 300)

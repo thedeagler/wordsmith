@@ -8,6 +8,9 @@ class_name ControllableCharacter2D
 func _physics_process(delta):
 	handle_movement()
 	move_and_slide()
+	if Input.is_action_just_pressed("attack"):
+		var mouse_pos = get_global_mouse_position()
+		$MeleeWeapon.swing(mouse_pos)
 
 func handle_movement():
 	# Get input direction
