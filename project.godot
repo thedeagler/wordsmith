@@ -20,6 +20,11 @@ config/icon="res://icon.svg"
 PlayerData="*res://globalState/PlayerData.gd"
 GameState="*res://globalState/GameState.gd"
 
+[global_group]
+
+player=""
+enemy=""
+
 [input]
 
 move_left={

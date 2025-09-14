@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name ControllableCharacter2D
 # Exported variables for easy configuration
 @export var movement_speed: float = 800.0
 @export var acceleration: float = 1000.0

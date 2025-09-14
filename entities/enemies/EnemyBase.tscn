@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://kahel4f7conr"]
+
+[ext_resource type="Script" uid="uid://7lss67n68pby" path="res://entities/enemies/enemy_base.gd" id="1_qvmat"]
+[ext_resource type="Script" uid="uid://bf7vjbwigip2w" path="res://components/Damager.gd" id="2_ogbit"]
+[ext_resource type="Script" uid="uid://b1teou4wlluc5" path="res://components/Damageable.gd" id="3_ywgu6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qvmat"]
+content_margin_left = 8.0
+content_margin_right = 8.0
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tghe6"]
+size = Vector2(55, 40)
+
+[node name="EnemyBase" type="Node2D" groups=["enemy"]]
+script = ExtResource("1_qvmat")
+
+[node name="Damager" type="Node" parent="."]
+script = ExtResource("2_ogbit")
+metadata/_custom_type_script = "uid://bf7vjbwigip2w"
+
+[node name="Damageable" type="Node" parent="."]
+script = ExtResource("3_ywgu6")
+metadata/_custom_type_script = "uid://b1teou4wlluc5"
+
+[node name="AI" type="Node" parent="."]
+
+[node name="Panel" type="PanelContainer" parent="."]
+offset_right = 53.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qvmat")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/outline_size = 8
+text = "Verb"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(26.5, 20)
+shape = SubResource("RectangleShape2D_tghe6")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b8x7y2k3m4n5p"]
 
 [ext_resource type="Script" uid="uid://howsnu8wyhmv" path="res://levels/characterCreation/ui/adjectiveCard/AdjectiveCard.gd" id="1_pwma2"]
-[ext_resource type="Resource" uid="uid://c8ddgx58re67y" path="res://adjectives/resources/common/Calm.tres" id="2_h2car"]
+[ext_resource type="Resource" uid="uid://dw208bjax382v" path="res://adjectives/resources/common/Calm.tres" id="2_h2car"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pwma2"]
 bg_color = Color(1, 0.996, 0.98, 1)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bqx8y7v8lam2n"]
+[gd_scene load_steps=9 format=3 uid="uid://bqx8y7v8lam2n"]
 
 [ext_resource type="Script" uid="uid://cvnlfdsqrsgpj" path="res://levels/intro/Area1.gd" id="1_0h8vx"]
-[ext_resource type="PackedScene" uid="uid://ha0p6f1boiwb" path="res://ControllableCharacter2D/ControllableCharacter2D.tscn" id="2_ksvln"]
+[ext_resource type="PackedScene" uid="uid://ha0p6f1boiwb" path="res://entities/player/ControllableCharacter2D/ControllableCharacter2D.tscn" id="2_ksvln"]
 [ext_resource type="PackedScene" uid="uid://6og6dc04hfg1" path="res://camera/SmoothFollowCamera.tscn" id="3_udnfv"]
 [ext_resource type="Texture2D" uid="uid://cgwoy8u446clc" path="res://assets/notebook_paper.png" id="4_5t6g7"]
+[ext_resource type="PackedScene" uid="uid://bj73hp4t35n3" path="res://entities/enemies/types/Walk.tscn" id="4_udnfv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
 size = Vector2(20, 1620)
@@ -40,12 +41,12 @@ shape = SubResource("RectangleShape2D_2")
 position = Vector2(1920, -10)
 shape = SubResource("RectangleShape2D_2")
 
-[node name="Player" type="Node2D" parent="."]
-position = Vector2(100, 0)
-
-[node name="ControllableCharacter2D" parent="Player" instance=ExtResource("2_ksvln")]
+[node name="Player" parent="." instance=ExtResource("2_ksvln")]
 
 [node name="SmoothFollowCamera" parent="Player" instance=ExtResource("3_udnfv")]
+
+[node name="Walk" parent="." instance=ExtResource("4_udnfv")]
+position = Vector2(484, 80)
 
 [node name="TransitionTrigger" type="Area2D" parent="."]
 position = Vector2(3602, 800)

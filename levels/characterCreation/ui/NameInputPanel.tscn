@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://c9x8y7z6a5b4c3d2"]
+[gd_scene load_steps=2 format=3 uid="uid://wfj6b11wkwx2"]
 
 [ext_resource type="Script" path="res://levels/characterCreation/ui/NameInputPanel.gd" id="1_1x2y3"]
 

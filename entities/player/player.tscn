@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwu1jqnrijopo"]
+
+[ext_resource type="PackedScene" uid="uid://ha0p6f1boiwb" path="res://entities/player/ControllableCharacter2D/ControllableCharacter2D.tscn" id="1_sglur"]
+[ext_resource type="PackedScene" uid="uid://6og6dc04hfg1" path="res://camera/SmoothFollowCamera.tscn" id="2_bls4j"]
+
+[node name="Player" type="Node2D"]
+
+[node name="ControllableCharacter2D" parent="." instance=ExtResource("1_sglur")]
+
+[node name="SmoothFollowCamera" parent="." instance=ExtResource("2_bls4j")]

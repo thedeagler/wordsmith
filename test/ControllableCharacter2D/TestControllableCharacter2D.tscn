@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cwyrxw7bnjqm"]
 
-[ext_resource type="PackedScene" uid="uid://ha0p6f1boiwb" path="res://ControllableCharacter2D/ControllableCharacter2D.tscn" id="1_test"]
+[ext_resource type="PackedScene" uid="uid://ha0p6f1boiwb" path="res://entities/player/ControllableCharacter2D/ControllableCharacter2D.tscn" id="1_test"]
 [ext_resource type="Script" uid="uid://cpjh0a43t02pr" path="res://test/ControllableCharacter2D/TestControllableCharacter2D.gd" id="2_test"]
 [ext_resource type="PackedScene" path="res://test/util/InfiniteTiles.tscn" id="3_tiles"]
 

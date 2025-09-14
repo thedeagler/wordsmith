@@ -11,4 +11,4 @@ func _ready():
 	# Initialize game data	
 	Utils.load_adjectives()
 	
-	get_tree().change_scene_to_file.call_deferred(CHARACTER_CREATION_SCENE)
+	get_tree().change_scene_to_file.call_deferred(INTRO_SCENE)

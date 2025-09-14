@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj73hp4t35n3"]
+
+[ext_resource type="PackedScene" uid="uid://kahel4f7conr" path="res://entities/enemies/EnemyBase.tscn" id="1_qf1av"]
+[ext_resource type="Script" uid="uid://dlapeeoyiaus3" path="res://entities/enemies/components/EnemyAIChase.gd" id="2_enjaj"]
+
+[node name="Walk" instance=ExtResource("1_qf1av")]
+
+[node name="Damager" parent="." index="0"]
+unique_name_in_owner = true
+
+[node name="Damageable" parent="." index="1"]
+unique_name_in_owner = true
+
+[node name="AI" parent="." index="2"]
+script = ExtResource("2_enjaj")
+
+[node name="Label" parent="Panel" index="0"]
+text = "Walk"
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(27.5, 20)
