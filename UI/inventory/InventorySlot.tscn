@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpx43sjxe3wec"]
+
+[ext_resource type="Script" uid="uid://dujvs3xwct1nv" path="res://UI/inventory/inventory_slot.gd" id="1_rsb5q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rsb5q"]
+bg_color = Color(0.955963, 0.955963, 0.955963, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.572988, 0.572988, 0.572988, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="InventorySlot" type="Node2D"]
+script = ExtResource("1_rsb5q")
+
+[node name="ColorRect" type="Panel" parent="."]
+offset_right = 82.0
+offset_bottom = 74.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rsb5q")
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 0
+offset_right = 82.0
+offset_bottom = 80.0
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/TextureRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -42.0
+offset_right = 42.0
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 14
+text = "Item Name"
+horizontal_alignment = 1

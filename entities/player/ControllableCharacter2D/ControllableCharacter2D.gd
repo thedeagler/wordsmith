@@ -4,9 +4,12 @@ class_name ControllableCharacter2D
 @export var movement_speed: float = 800.0
 @export var acceleration: float = 1000.0
 @export var friction: float = 200.0
+var inventory_ui: InventoryUI
 
 func _ready() -> void:
-	pass
+	inventory_ui = preload("res://UI/inventory/Inventory.tscn").instantiate()
+	get_tree().current_scene.call_deferred("add_child", inventory_ui)
+	inventory_ui.visible = false
 
 func _physics_process(_delta):
 	handle_movement()
@@ -14,6 +17,8 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("attack"):
 		var mouse_pos = get_global_mouse_position()
 		$MeleeWeapon.swing(mouse_pos)
+	if Input.is_action_just_pressed("inventory"):
+		inventory_ui.visible = !inventory_ui.visible
 
 func handle_movement():
 	# Get input direction
