@@ -4,10 +4,14 @@ extends PanelContainer
 @export var adjective_data: AdjectiveData: set = set_adjective_data
 @onready var name_label: RichTextLabel = %NameLabel
 @onready var description_label: RichTextLabel = %DescriptionLabel
+@onready var button: Button = %Button
 
 func _ready():
 	adjective_data = Utils.get_random_adjective()
 	update_display()
+	
+	# Connect button signals
+	button.pressed.connect(_on_button_pressed)
 
 func set_adjective_data(data: AdjectiveData):
 	adjective_data = data
@@ -26,3 +30,7 @@ func update_display():
 		style.border_width_right = 8
 		style.border_width_top = 8
 		style.border_width_bottom = 8
+
+func _on_button_pressed():
+	print("Button pressed")
+	print(adjective_data.word)

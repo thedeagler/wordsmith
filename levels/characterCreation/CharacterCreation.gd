@@ -6,16 +6,15 @@ extends Node2D
 signal name_submitted(name: String)
 
 var player_name: String = ""
-var current_step: int = 0  # 0 = name input, 1+ = future phases
 
 @onready var name_input_panel = $UI/NameInputPanel
+@onready var adjective_container: HBoxContainer = $UI/AdjectiveContainer/HBoxContainer
 @onready var character_description_label = $UI/CharacterDescriptionLabel/Label
 
 func _ready():
 	# Initialize the scene
 	_initialize_ui()
 	_connect_signals()
-	
 
 func _initialize_ui():
 	# Show name input panel initially, hide description label
@@ -32,7 +31,6 @@ func _on_name_submitted(name: String):
 		player_name = name.strip_edges()
 		_update_character_description()
 		_show_character_description()
-		current_step += 1
 		print("Name submitted: ", player_name)
 	else:
 		# Validation failed, let the panel handle the error
