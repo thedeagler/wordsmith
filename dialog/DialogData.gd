@@ -6,6 +6,7 @@ extends Resource
 
 @export var dialog_texts: PackedStringArray = []
 @export var current_index: int = 0
+# Currently doesn't handle multiple speakers
 @export var speaker_name: String = ""
 
 ## Get the current dialog text

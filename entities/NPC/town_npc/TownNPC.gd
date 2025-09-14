@@ -37,21 +37,7 @@ func _on_player_exited(body):
 func interact_with_player():
 	is_interacting = true
 	
-	# Show dialog if available, otherwise fall back to enchantment
-	print("dialog_data: ", dialog_data)
-	
-	# Create dialog data if not available or if DialogData class isn't recognized
-	var dialog_to_show = dialog_data
-	if not dialog_to_show or dialog_to_show.dialog_texts.size() == 0:
-		print("Creating fallback dialog data")
-		dialog_to_show = preload("res://dialog/DialogData.gd").new()
-		dialog_to_show.speaker_name = "Enchanter"
-		dialog_to_show.dialog_texts = [
-			"Welcome, traveler! I am the Enchanter.",
-			"I can add magical properties to your weapons and items.",
-			"Bring me an item and I shall enchant it with a random adjective!",
-			"The enchantment will make your item more powerful in battle."
-		]
+	var dialog_to_show = get_dialog_data()
 	
 	if dialog_to_show and dialog_to_show.dialog_texts.size() > 0:
 		print("should pop up dialog")
@@ -104,3 +90,18 @@ func get_player_current_item():
 		# Fallback: try to get the melee weapon directly
 		return player.get_node_or_null("MeleeWeapon")
 	return null
+
+func get_dialog_data() -> DialogData:
+	var builder = DialogDataBuilder.new()
+	builder.add_speaker("Wordsmith")
+	builder.add_texts([
+			"Welcome, %s! I am the Wordsmith." % PlayerData.noun.name.capitalize(),
+			"I can make your lame nouns so much cooler with... adjectives!",
+			"I see you've collected some on the battle field... Let me see...",
+		])
+
+	var adjective_text = ", ".join(PlayerData.noun.adjectives.map(func(adjective: AdjectiveData): return adjective.word))
+	builder.add_text(adjective_text + "... powerful...")
+	builder.add_text("Which noun would you like to enchant?")
+	
+	return builder.build()
