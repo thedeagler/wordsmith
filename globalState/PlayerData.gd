@@ -1,8 +1,6 @@
 extends Node
 
-var player_name: String
 var noun: NounData
-var adjectives: Array[AdjectiveData] = []
 var adjInventory: Array = [AdjectiveData]
 var nounInventory: Array = [NounData]
 var loadout: Dictionary = {
@@ -21,9 +19,17 @@ func loot_item(resource) -> void:
 	if resource is AdjectiveData:
 		adjInventory.append(resource)
 	elif resource is NounData:
-		nounInventory.append(resource)		
+		nounInventory.append(resource)
 		PlayerData.heldItem = resource
-	emit_signal("inventory_update")	
+	emit_signal("inventory_update")
 
 
 signal inventory_update
+
+func test_player_data():
+	noun = NounData.new()
+	noun.name = "kirk"
+	PlayerData.noun = noun
+	# Get 3 random adjectives and add them to the adjInventory
+	for i in 3:
+		PlayerData.adjInventory.append(Utils.get_random_adjective())
