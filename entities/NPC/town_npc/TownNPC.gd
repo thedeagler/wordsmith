@@ -37,7 +37,7 @@ func _on_player_exited(body):
 func interact_with_player():
 	is_interacting = true
 	
-	var dialog_to_show = get_dialog_data()
+	var dialog_to_show = first_time_dialog()
 	
 	if dialog_to_show and dialog_to_show.dialog_texts.size() > 0:
 		print("should pop up dialog")
@@ -68,7 +68,7 @@ func _on_dialog_completed(_dialog_box: DialogBox, canvas_layer: CanvasLayer):
 		canvas_layer.queue_free()
 
 func add_adjective_to_item():
-	var random_adjective = get_random_adjective()
+	var random_adjective = Utils.get_random_adjective()
 	var player_item = get_player_current_item()
 	
 	if player_item and player_item.has_method("add_adjective"):
@@ -76,10 +76,6 @@ func add_adjective_to_item():
 		print("Added adjective '", random_adjective.word, "' to player's item")
 	else:
 		print("You need an item to enchant!")
-
-func get_random_adjective():
-	# Use existing adjective system
-	return Utils.get_random_adjective()
 
 func get_player_current_item():
 	# Get player's current item (weapon, etc.)
@@ -91,7 +87,7 @@ func get_player_current_item():
 		return player.get_node_or_null("MeleeWeapon")
 	return null
 
-func get_dialog_data() -> DialogData:
+func first_time_dialog() -> DialogData:
 	print("Player data reading, noun: ", PlayerData.noun.name)
 	var builder = DialogDataBuilder.new()
 	builder.add_speaker("Wordsmith")
@@ -101,8 +97,14 @@ func get_dialog_data() -> DialogData:
 			"I see you've collected some on the battle field... Let me see...",
 		])
 
-	var adjective_text = ", ".join(PlayerData.noun.adjectives.map(func(adjective: AdjectiveData): return adjective.word))
-	builder.add_text(adjective_text + "... powerful...")
-	builder.add_text("Which noun would you like to enchant?")
+	var adjective_text = ", ".join(PlayerData.adjInventory.map(func(adjective: AdjectiveData): return adjective.word))
+	builder.add_text(adjective_text + "... so powerful...")
 	
+	# Adjective selection loop
+	for adjective in PlayerData.adjInventory:
+		builder.add_text("Which noun shall be " + adjective.word + "?")
+
+	# clear the adjectives from the inventory
+	# PlayerData.adjInventory.clear()
+
 	return builder.build()
