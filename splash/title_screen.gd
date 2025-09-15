@@ -62,7 +62,7 @@ func start_settling_phase():
 	
 	# Switch to settling mode
 	is_settling_phase = true
-	animation_timer.wait_time = 0.12 # Stop one letter every 120ms
+	animation_timer.wait_time = 0.18 # Stop one letter every 180ms
 	animation_timer.disconnect("timeout", _shuffle_letters)
 	animation_timer.timeout.connect(_fix_next_letter)
 
