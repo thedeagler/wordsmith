@@ -29,6 +29,6 @@ signal inventory_update
 
 func test_player_data():
 	Utils.load_adjectives()
-	PlayerData.noun.name = "kirk"
+	PlayerData.noun.word = "kirk"
 	for i in 3:
 		PlayerData.adjInventory.append(Utils.get_random_adjective())
