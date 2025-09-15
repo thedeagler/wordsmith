@@ -5,4 +5,4 @@ class_name LootData
 @export var partOfSpeech: String = "noun" # "noun" (items) or "adjective" (buffs) or "interjections" (consumables)
 @export var rarity: RarityData 
 @export var asset: Texture2D
-var resource
+@export var resource: Resource

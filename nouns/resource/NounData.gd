@@ -1,7 +1,7 @@
 class_name NounData
 extends Resource
 
-@export var name: String
+@export var word: String
 @export var is_proper_noun: bool = false
 @export var adjectives: Array[AdjectiveData] = []
 @export var body: NounData
@@ -9,5 +9,5 @@ extends Resource
 @export var hand: NounData
 
 func _init(p_name: String = "", p_is_proper_noun: bool = false):
-	name = p_name
+	word = p_name
 	is_proper_noun = p_is_proper_noun

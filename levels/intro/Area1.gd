@@ -10,6 +10,8 @@ var camera: Camera2D = null
 # Transition trigger area
 var transition_trigger: Area2D = null
 
+var swordLoot: LootData
+
 func _ready():
 	print("Area1 ready")
 	# Find the player in the scene

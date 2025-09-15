@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://bqx8y7v8lam2n"]
+[gd_scene load_steps=12 format=3 uid="uid://bqx8y7v8lam2n"]
 
 [ext_resource type="Script" uid="uid://cvnlfdsqrsgpj" path="res://levels/intro/Area1.gd" id="1_0h8vx"]
 [ext_resource type="PackedScene" uid="uid://ha0p6f1boiwb" path="res://entities/player/ControllableCharacter2D/ControllableCharacter2D.tscn" id="2_ksvln"]
 [ext_resource type="Texture2D" uid="uid://bggydtwqc7nvi" path="res://assets/battle backgrounds/PNG/1/terrace.png" id="2_snbsy"]
 [ext_resource type="PackedScene" uid="uid://6og6dc04hfg1" path="res://camera/SmoothFollowCamera.tscn" id="3_udnfv"]
-[ext_resource type="PackedScene" uid="uid://bj73hp4t35n3" path="res://entities/enemies/types/Walk.tscn" id="4_udnfv"]
 [ext_resource type="PackedScene" uid="uid://ctaqqncilvi3e" path="res://nouns/weapon/Melee.tscn" id="5_snbsy"]
+[ext_resource type="PackedScene" uid="uid://bj82pm40veoio" path="res://entities/loot/Loot.tscn" id="7_l2qgr"]
+[ext_resource type="Resource" uid="uid://mkdmr4jtmbnp" path="res://entities/loot/startingSword.tres" id="8_msghs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3"]
 size = Vector2(20, 1461)
@@ -48,13 +49,11 @@ shape = SubResource("RectangleShape2D_2")
 
 [node name="Player" parent="." instance=ExtResource("2_ksvln")]
 position = Vector2(455, 640)
+movement_speed = 600.0
 
 [node name="SmoothFollowCamera" parent="Player" instance=ExtResource("3_udnfv")]
 
 [node name="MeleeWeapon" parent="Player" instance=ExtResource("5_snbsy")]
-
-[node name="Walk" parent="." instance=ExtResource("4_udnfv")]
-position = Vector2(867, 670)
 
 [node name="TransitionTrigger" type="Area2D" parent="."]
 position = Vector2(3602, 800)
@@ -62,3 +61,7 @@ position = Vector2(3602, 800)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionTrigger"]
 position = Vector2(-1371, -188)
 shape = SubResource("RectangleShape2D_snbsy")
+
+[node name="StarterSwordLoot" parent="." instance=ExtResource("7_l2qgr")]
+position = Vector2(700, 814)
+loot = ExtResource("8_msghs")

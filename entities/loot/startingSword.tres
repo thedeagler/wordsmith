@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="LootData" load_steps=5 format=3 uid="uid://mkdmr4jtmbnp"]
+
+[ext_resource type="Texture2D" uid="uid://c1hy4oycx46ll" path="res://assets/nouns/sword.png" id="1_8618f"]
+[ext_resource type="Resource" uid="uid://ciptye0hx7jt0" path="res://rarity/common.tres" id="2_u5ppf"]
+[ext_resource type="Script" uid="uid://bo580e2gjvnuu" path="res://entities/loot/LootData.gd" id="3_sro0p"]
+[ext_resource type="Resource" uid="uid://dnbgaq4mnusod" path="res://nouns/weapon/sword_noun.tres" id="3_u5ppf"]
+
+[resource]
+script = ExtResource("3_sro0p")
+word = "Sword"
+partOfSpeech = "noun"
+rarity = ExtResource("2_u5ppf")
+asset = ExtResource("1_8618f")
+resource = ExtResource("3_u5ppf")
+metadata/_custom_type_script = "uid://bo580e2gjvnuu"

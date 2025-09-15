@@ -110,7 +110,12 @@ static func generate_loot() -> Loot:
 	
 	return loot_instance
 	
+	
 static func spawn_loot(ref) -> void:
 	var loot_instance = Utils.generate_loot()
 	ref.get_tree().current_scene.add_child(loot_instance)
 	loot_instance.global_position = ref.global_position
+
+static func spawn_item(ref, item) -> void:
+	ref.get_tree().current_scene.add_child(item)
+	item.global_position = ref.global_position

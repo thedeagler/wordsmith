@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("2_3f2mf")
-name = "sword"
+word = "Sword"
 is_proper_noun = false
 adjectives = Array[ExtResource("1_au5xm")]([])
