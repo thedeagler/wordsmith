@@ -1,10 +1,87 @@
-[gd_scene load_steps=4 format=3 uid="uid://ha0p6f1boiwb"]
+[gd_scene load_steps=21 format=3 uid="uid://ha0p6f1boiwb"]
 
 [ext_resource type="Script" uid="uid://c3wpkrqe6vbk4" path="res://entities/player/ControllableCharacter2D/ControllableCharacter2D.gd" id="1_0x8y2"]
 [ext_resource type="PackedScene" uid="uid://jukb8qqfulqr" path="res://components/Damageable.tscn" id="2_3y1nm"]
+[ext_resource type="Texture2D" uid="uid://cdxuulgiqu4tf" path="res://assets/Fighter sprites/fighter_Idle_0001.png" id="3_cxlbk"]
+[ext_resource type="Texture2D" uid="uid://dly35qtcngm8s" path="res://assets/Fighter sprites/fighter_run_0017.png" id="3_fhr7i"]
+[ext_resource type="Texture2D" uid="uid://wl7d06h0mxvo" path="res://assets/Fighter sprites/fighter_Idle_0002.png" id="4_68ijn"]
+[ext_resource type="Texture2D" uid="uid://ltvd3glp3ly2" path="res://assets/Fighter sprites/fighter_run_0018.png" id="4_jlu2n"]
+[ext_resource type="Texture2D" uid="uid://dmdemeb3t82pe" path="res://assets/Fighter sprites/fighter_Idle_0003.png" id="5_a8ntv"]
+[ext_resource type="Texture2D" uid="uid://c1cv2rk81gguh" path="res://assets/Fighter sprites/fighter_run_0019.png" id="5_ot4hf"]
+[ext_resource type="Texture2D" uid="uid://dybjcjkp8bwyx" path="res://assets/Fighter sprites/fighter_run_0020.png" id="6_hrdov"]
+[ext_resource type="Texture2D" uid="uid://dpvg0j5lm8vru" path="res://assets/Fighter sprites/fighter_Idle_0004.png" id="6_mi4a4"]
+[ext_resource type="Texture2D" uid="uid://dc5tgiusgir4x" path="res://assets/Fighter sprites/fighter_run_0021.png" id="7_7ph1t"]
+[ext_resource type="Texture2D" uid="uid://cpjp1liqss5l6" path="res://assets/Fighter sprites/fighter_Idle_0005.png" id="7_scdy0"]
+[ext_resource type="Texture2D" uid="uid://bjxpxhikqijau" path="res://assets/Fighter sprites/fighter_run_0022.png" id="8_5j4tx"]
+[ext_resource type="Texture2D" uid="uid://cgxrw2oo5gfhx" path="res://assets/Fighter sprites/fighter_Idle_0006.png" id="8_yngiq"]
+[ext_resource type="Texture2D" uid="uid://nfn5sybl3yms" path="res://assets/Fighter sprites/fighter_run_0023.png" id="9_aj3rv"]
+[ext_resource type="Texture2D" uid="uid://dxdhu8vtarqeu" path="res://assets/Fighter sprites/fighter_Idle_0007.png" id="9_vwvpi"]
+[ext_resource type="Texture2D" uid="uid://qojpyf8t3s2n" path="res://assets/Fighter sprites/fighter_Idle_0008.png" id="10_2h3fe"]
+[ext_resource type="Texture2D" uid="uid://dfv0m25lxiavf" path="res://assets/Fighter sprites/fighter_run_0024.png" id="10_qwkt1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1x2y3"]
 size = Vector2(76, 152)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cxlbk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_cxlbk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_68ijn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a8ntv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_mi4a4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_scdy0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yngiq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_vwvpi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_2h3fe")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_fhr7i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jlu2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ot4hf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hrdov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7ph1t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5j4tx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_aj3rv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qwkt1")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
 
 [node name="ControllableCharacter2D" type="CharacterBody2D" groups=["player"]]
 position = Vector2(192, 300)
@@ -17,3 +94,10 @@ friction = 50.0
 shape = SubResource("RectangleShape2D_1x2y3")
 
 [node name="Damageable" parent="." instance=ExtResource("2_3y1nm")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-9, -40)
+sprite_frames = SubResource("SpriteFrames_cxlbk")
+animation = &"run"
+autoplay = "idle"
+frame_progress = 0.321038

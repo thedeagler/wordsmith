@@ -10,6 +10,17 @@ func _ready() -> void:
 	inventory_ui = preload("res://UI/inventory/Inventory.tscn").instantiate()
 	get_tree().current_scene.call_deferred("add_child", inventory_ui)
 	inventory_ui.visible = false
+	
+func _process(delta) -> void:
+	if velocity.length() > 0:
+		$AnimatedSprite2D.play("run")
+	else:
+		$AnimatedSprite2D.play("idle")
+	
+	if velocity.x != 0:
+		$AnimatedSprite2D.animation = "run"
+		$AnimatedSprite2D.flip_v = false
+		$AnimatedSprite2D.flip_h = velocity.x < 0
 
 func _physics_process(_delta):
 	handle_movement()
