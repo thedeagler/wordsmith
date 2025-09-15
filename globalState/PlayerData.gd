@@ -1,8 +1,8 @@
 extends Node
 
 var noun: NounData
-var adjInventory: Array = [AdjectiveData]
-var nounInventory: Array = [NounData]
+var adjInventory: Array[AdjectiveData] = []
+var nounInventory: Array[NounData] = []
 var loadout: Dictionary = {
 	"weapon": NounData,
 	"armor": NounData,
@@ -10,6 +10,7 @@ var loadout: Dictionary = {
 }
 
 var heldItem: Resource
+
 
 func _ready():
 	noun = NounData.new()
@@ -22,7 +23,6 @@ func loot_item(resource) -> void:
 		nounInventory.append(resource)
 		PlayerData.heldItem = resource
 	emit_signal("inventory_update")
-
 
 signal inventory_update
 
