@@ -183,10 +183,12 @@ animations = [{
 radius = 200.0
 
 [node name="TownNPC" type="Node2D" groups=["npc"]]
+y_sort_enabled = true
 script = ExtResource("1_townnpc")
 interaction_range = 200.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(9, 7)
 scale = Vector2(8, 8)
 sprite_frames = SubResource("SpriteFrames_alc0p")
@@ -195,6 +197,7 @@ autoplay = "idle"
 frame_progress = 0.459568
 
 [node name="InteractionArea" type="Area2D" parent="."]
+y_sort_enabled = true
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]

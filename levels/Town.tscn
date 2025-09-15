@@ -26,6 +26,7 @@ size = Vector2(41, 848)
 script = ExtResource("1_u886a")
 
 [node name="Background" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_wh5ye")
 
@@ -50,6 +51,8 @@ position = Vector2(961, 140)
 scale = Vector2(2.2, 1)
 shape = SubResource("RectangleShape2D_ns20s")
 
+[node name="TownNPC" parent="." instance=ExtResource("6_seach")]
+
 [node name="Player" parent="." instance=ExtResource("2_i03sh")]
 position = Vector2(-916, 110)
 movement_speed = 800.0
@@ -67,5 +70,3 @@ position = Vector2(-1, 5)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionTrigger"]
 position = Vector2(958, 143)
 shape = SubResource("RectangleShape2D_k1nfj")
-
-[node name="TownNPC" parent="." instance=ExtResource("6_seach")]

@@ -84,6 +84,7 @@ animations = [{
 }]
 
 [node name="ControllableCharacter2D" type="CharacterBody2D" groups=["player"]]
+y_sort_enabled = true
 position = Vector2(192, 300)
 script = ExtResource("1_0x8y2")
 movement_speed = 300.0
@@ -96,6 +97,7 @@ shape = SubResource("RectangleShape2D_1x2y3")
 [node name="Damageable" parent="." instance=ExtResource("2_3y1nm")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(-9, -40)
 sprite_frames = SubResource("SpriteFrames_cxlbk")
 animation = &"run"
