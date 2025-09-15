@@ -172,6 +172,24 @@ unique_name_in_owner = true
 position = Vector2(452, 346)
 texture = ExtResource("4_kkbyv")
 
+[node name="Button" type="Button" parent="."]
+offset_left = 28.0
+offset_top = 24.0
+offset_right = 68.0
+offset_bottom = 64.0
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 23
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="Loadout/Weapon/WeaponButton" to="." method="_on_weapon_button_pressed"]
 [connection signal="pressed" from="Loadout/Armor/ArmorButton" to="." method="_on_armor_button_pressed"]
 [connection signal="pressed" from="Loadout/Boot/BootButton" to="." method="_on_boot_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -30,6 +30,8 @@ func _physics_process(_delta):
 		$MeleeWeapon.swing(mouse_pos)
 	if Input.is_action_just_pressed("inventory"):
 		inventory_ui.visible = !inventory_ui.visible
+	if Input.is_action_just_pressed("close all"):
+		inventory_ui.visible = false
 
 func handle_movement():
 	# Get input direction

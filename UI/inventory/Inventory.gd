@@ -60,3 +60,7 @@ func _on_armor_button_pressed() -> void:
 func _on_boot_button_pressed() -> void:
 	PlayerData.noun.feet = PlayerData.heldItem
 	PlayerData.heldItem = null
+
+
+func _on_button_pressed() -> void:
+	visible = false
