@@ -61,7 +61,7 @@ func create_adjective_bubbles():
 	var adjectives = []
 	
 	# Try to get adjectives from equipped item
-	if equipped_item and equipped_item.has_method("get_adjectives"):
+	if equipped_item is NounData:
 		adjectives = equipped_item.adjectives
 	
 	# If no adjectives found, get 3 random ones
