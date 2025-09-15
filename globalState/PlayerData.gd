@@ -14,6 +14,7 @@ var heldItem: Resource
 
 func _ready():
 	noun = NounData.new()
+	test_player_data()
 
 func loot_item(resource) -> void:
 	print('Player received: ', resource.word)
@@ -27,9 +28,7 @@ func loot_item(resource) -> void:
 signal inventory_update
 
 func test_player_data():
-	noun = NounData.new()
-	noun.name = "kirk"
-	PlayerData.noun = noun
-	# Get 3 random adjectives and add them to the adjInventory
+	Utils.load_adjectives()
+	PlayerData.noun.name = "kirk"
 	for i in 3:
 		PlayerData.adjInventory.append(Utils.get_random_adjective())

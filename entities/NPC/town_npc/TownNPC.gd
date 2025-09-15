@@ -92,6 +92,7 @@ func get_player_current_item():
 	return null
 
 func get_dialog_data() -> DialogData:
+	print("Player data reading, noun: ", PlayerData.noun.name)
 	var builder = DialogDataBuilder.new()
 	builder.add_speaker("Wordsmith")
 	builder.add_texts([
