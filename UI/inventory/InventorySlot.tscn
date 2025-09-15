@@ -26,6 +26,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_rsb5q")
 unique_name_in_owner = true
 
 [node name="Label" type="Label" parent="ColorRect/Sprite2D"]
+unique_name_in_owner = true
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5

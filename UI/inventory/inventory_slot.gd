@@ -4,8 +4,8 @@ class_name InventorySlot
 @export var slot_type: String = "weapon" # weapon, armor, boots, or item
 @export var equipped_item: Resource = null
 
-@onready var sprite: Sprite2D = $Sprite2D
-@onready var label: Label = $Label
+@onready var sprite: Sprite2D = %Sprite2D
+@onready var label: Label = %Label
 
 func set_item(item_resource):
 	if item_resource:

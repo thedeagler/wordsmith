@@ -1,29 +1,29 @@
 extends CanvasLayer
 class_name InventoryUI
 
-@onready var weapon_slot: InventorySlot = $Loadout/Weapon
-@onready var armor_slot: InventorySlot = $Loadout/Armor
-@onready var boots_slot: InventorySlot = $Loadout/Boots
-@onready var grid_container: GridContainer = $InventoryGrid/GridContainer
+@onready var weapon_slot: InventorySlot = %Weapon
+@onready var armor_slot: InventorySlot = %Armor
+@onready var boots_slot: InventorySlot = %Boot
+@onready var grid_container: GridContainer = %GridContainer
 var slot_scene := preload("res://ui/inventory/InventorySlot.tscn")
 
 func _ready() -> void:
 	PlayerData.inventory_update.connect(populate_inventory)
 	populate_inventory(PlayerData.nounInventory)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	%feetsword.visible = PlayerData.noun.feet != null
 	%bodysword.visible = PlayerData.noun.body != null
 	%handsword.visible = PlayerData.noun.hand != null
 	
 	if not PlayerData.heldItem:
-		$Loadout/Weapon/WeaponButton.disabled = true
-		$Loadout/Armor/ArmorButton.disabled = true
-		$Loadout/Boot/BootButton.disabled = true
+		%WeaponButton.disabled = true
+		%ArmorButton.disabled = true
+		%BootButton.disabled = true
 	else:
-		$Loadout/Weapon/WeaponButton.disabled = false
-		$Loadout/Armor/ArmorButton.disabled = false
-		$Loadout/Boot/BootButton.disabled = false
+		%WeaponButton.disabled = false
+		%ArmorButton.disabled = false
+		%BootButton.disabled = false
 
 func populate_inventory(inventory_items: Array):
 	print('pop inv', inventory_items)

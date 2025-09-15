@@ -11,9 +11,9 @@ const LEVEL4_SCENE: String = "res://levels/Level4.tscn"
 const TOWN_SCENE: String = "res://levels/Town.tscn"
 
 const SCENE_LIST: Array[String] = [
-	INTRO_SCENE,
-	TITLE_SCENE,
-	CHARACTER_CREATION_SCENE,
+	#INTRO_SCENE,
+	#TITLE_SCENE,
+	#CHARACTER_CREATION_SCENE,
 	LEVEL1_SCENE,
 	LEVEL2_SCENE,
 	TOWN_SCENE,

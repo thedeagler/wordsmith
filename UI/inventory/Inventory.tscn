@@ -31,6 +31,7 @@ offset_right = 530.0
 offset_bottom = 605.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Loadout"]
+unique_name_in_owner = true
 position = Vector2(399, 211)
 scale = Vector2(2.38266, 2.38266)
 texture = ExtResource("2_nqiy8")
@@ -52,9 +53,11 @@ text = "Loadout"
 horizontal_alignment = 3
 
 [node name="Weapon" parent="Loadout" instance=ExtResource("2_qfesm")]
+unique_name_in_owner = true
 position = Vector2(339, 240)
 
 [node name="WeaponButton" type="Button" parent="Loadout/Weapon"]
+unique_name_in_owner = true
 offset_right = 82.0
 offset_bottom = 75.0
 theme_override_styles/disabled = SubResource("StyleBoxFlat_nqiy8")
@@ -73,9 +76,11 @@ text = "Weapon"
 horizontal_alignment = 1
 
 [node name="Armor" parent="Loadout" instance=ExtResource("2_qfesm")]
+unique_name_in_owner = true
 position = Vector2(32, 292)
 
 [node name="ArmorButton" type="Button" parent="Loadout/Armor"]
+unique_name_in_owner = true
 offset_right = 82.0
 offset_bottom = 75.0
 theme_override_styles/disabled = SubResource("StyleBoxFlat_nqiy8")
@@ -94,9 +99,11 @@ text = "Armor"
 horizontal_alignment = 1
 
 [node name="Boot" parent="Loadout" instance=ExtResource("2_qfesm")]
+unique_name_in_owner = true
 position = Vector2(282, 395)
 
 [node name="BootButton" type="Button" parent="Loadout/Boot"]
+unique_name_in_owner = true
 offset_right = 82.0
 offset_bottom = 75.0
 theme_override_styles/disabled = SubResource("StyleBoxFlat_nqiy8")
@@ -147,6 +154,7 @@ text = "Inventory"
 horizontal_alignment = 3
 
 [node name="GridContainer" type="GridContainer" parent="InventoryGrid"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_top = 48.0
 offset_right = 463.0
