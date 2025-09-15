@@ -5,7 +5,7 @@ class_name InventoryUI
 @onready var armor_slot: InventorySlot = %Armor
 @onready var boots_slot: InventorySlot = %Boot
 @onready var grid_container: GridContainer = %GridContainer
-var slot_scene := preload("res://ui/inventory/InventorySlot.tscn")
+var slot_scene := preload("res://UI/inventory/InventorySlot.tscn")
 
 func _ready() -> void:
 	PlayerData.inventory_update.connect(populate_inventory)
