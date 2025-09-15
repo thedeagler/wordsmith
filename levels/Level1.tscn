@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqkkiwrihuhds"]
+[gd_scene load_steps=6 format=3 uid="uid://dqkkiwrihuhds"]
 
 [ext_resource type="PackedScene" uid="uid://bqx8y7v8lam2n" path="res://levels/intro/Area1.tscn" id="1_b84ys"]
 [ext_resource type="Texture2D" uid="uid://ckqr7aolqep2i" path="res://assets/battle backgrounds/PNG/4/dead forest.png" id="2_32mhh"]
+[ext_resource type="PackedScene" uid="uid://bj82pm40veoio" path="res://entities/loot/Loot.tscn" id="3_2j4y6"]
+[ext_resource type="Resource" uid="uid://mkdmr4jtmbnp" path="res://entities/loot/startingSword.tres" id="4_vi6ws"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_32mhh"]
 size = Vector2(86, 691)
@@ -30,11 +32,12 @@ position = Vector2(1053.83, 606.591)
 [node name="Player" parent="Area1" index="2"]
 position = Vector2(-184.17, 766.591)
 
-[node name="Walk" parent="Area1" index="3"]
-position = Vector2(241.83, 750.591)
-
 [node name="CollisionShape2D" parent="Area1/TransitionTrigger" index="0"]
 position = Vector2(-1950.17, 146.091)
 shape = SubResource("RectangleShape2D_32mhh")
+
+[node name="StarterSwordLoot" parent="Area1" instance=ExtResource("3_2j4y6")]
+position = Vector2(365.83, 853.591)
+loot = ExtResource("4_vi6ws")
 
 [editable path="Area1"]

@@ -29,10 +29,10 @@ func setup_test_data():
 			PlayerData.adjInventory.append(adjective)
 	
 	print("Test setup complete:")
-	print("- Main noun: ", PlayerData.noun.name)
-	print("- Body: ", PlayerData.noun.body.name if PlayerData.noun.body else "None")
-	print("- Feet: ", PlayerData.noun.feet.name if PlayerData.noun.feet else "None")
-	print("- Hand: ", PlayerData.noun.hand.name if PlayerData.noun.hand else "None")
+	print("- Main noun: ", PlayerData.noun.word)
+	print("- Body: ", PlayerData.noun.body.word if PlayerData.noun.body else "None")
+	print("- Feet: ", PlayerData.noun.feet.word if PlayerData.noun.feet else "None")
+	print("- Hand: ", PlayerData.noun.hand.word if PlayerData.noun.hand else "None")
 	print("- Adjectives: ", PlayerData.adjInventory.size())
 
 func _on_start_test():

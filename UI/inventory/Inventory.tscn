@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bb470ogskouf1"]
+[gd_scene load_steps=8 format=3 uid="uid://bb470ogskouf1"]
 
 [ext_resource type="Script" uid="uid://bsbgyr35ot74l" path="res://UI/inventory/Inventory.gd" id="1_gc0m4"]
 [ext_resource type="Texture2D" uid="uid://yabwf7yludjl" path="res://assets/player derp.png" id="2_nqiy8"]
 [ext_resource type="PackedScene" uid="uid://bpx43sjxe3wec" path="res://UI/inventory/InventorySlot.tscn" id="2_qfesm"]
+[ext_resource type="Texture2D" uid="uid://c1hy4oycx46ll" path="res://assets/nouns/sword.png" id="4_kkbyv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nqiy8"]
 bg_color = Color(0.118581, 0.118581, 0.118581, 1)
@@ -156,6 +157,21 @@ layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 
+[node name="bodysword" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(140, 441)
+texture = ExtResource("4_kkbyv")
+
+[node name="feetsword" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(397, 543)
+texture = ExtResource("4_kkbyv")
+
+[node name="handsword" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(452, 346)
+texture = ExtResource("4_kkbyv")
+
 [connection signal="pressed" from="Loadout/Weapon/WeaponButton" to="." method="_on_weapon_button_pressed"]
-[connection signal="pressed" from="Loadout/Armor/ArmorButton" to="." method="_on_weapon_button_pressed"]
-[connection signal="pressed" from="Loadout/Boot/BootButton" to="." method="_on_weapon_button_pressed"]
+[connection signal="pressed" from="Loadout/Armor/ArmorButton" to="." method="_on_armor_button_pressed"]
+[connection signal="pressed" from="Loadout/Boot/BootButton" to="." method="_on_boot_button_pressed"]

@@ -12,6 +12,10 @@ func _ready() -> void:
 	populate_inventory(PlayerData.nounInventory)
 
 func _process(delta: float) -> void:
+	%feetsword.visible = PlayerData.noun.feet != null
+	%bodysword.visible = PlayerData.noun.body != null
+	%handsword.visible = PlayerData.noun.hand != null
+	
 	if not PlayerData.heldItem:
 		$Loadout/Weapon/WeaponButton.disabled = true
 		$Loadout/Armor/ArmorButton.disabled = true
@@ -46,13 +50,13 @@ func _on_inventory_slot_selected(slot: InventorySlot):
 		equip_item(slot.equipped_item, slot.slot_type)
 
 func _on_weapon_button_pressed() -> void:
-	PlayerData.loadout.weapon = PlayerData.heldItem
+	PlayerData.noun.hand = PlayerData.heldItem
 	PlayerData.heldItem = null
 
 func _on_armor_button_pressed() -> void:
-	PlayerData.loadout.armor = PlayerData.heldItem
+	PlayerData.noun.body = PlayerData.heldItem
 	PlayerData.heldItem = null
 
 func _on_boot_button_pressed() -> void:
-	PlayerData.loadout.boots = PlayerData.heldItem
+	PlayerData.noun.feet = PlayerData.heldItem
 	PlayerData.heldItem = null

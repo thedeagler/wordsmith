@@ -106,7 +106,7 @@ static func generate_loot() -> Loot:
 	loot_data.rarity = rnd_item.rarity
 	var loot_scene: PackedScene = preload("res://entities/loot/Loot.tscn")
 	var loot_instance = loot_scene.instantiate()
-	loot_instance.loot = loot_data 
+	loot_instance.loot = loot_data
 	
 	return loot_instance
 	

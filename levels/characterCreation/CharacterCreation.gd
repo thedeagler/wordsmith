@@ -50,7 +50,7 @@ func _on_name_submitted(p_name: String):
 	if _validate_name(p_name):
 		var player_name = p_name.strip_edges()
 		print("Name submitted: ", player_name)
-		PlayerData.noun.name = player_name
+		PlayerData.noun.word = player_name
 		_update_character_description()
 		_show_character_description()
 		name_input_panel.hide()
@@ -76,14 +76,14 @@ func _validate_name(player_name: String) -> bool:
 func _update_character_description():
 	# Update the character description label with current name
 	var flava_text = "Behold..."
-	if PlayerData.noun.name != "":
+	if PlayerData.noun.word != "":
 		for i in range(PlayerData.noun.adjectives.size()):
 			var adjective = PlayerData.noun.adjectives[i]
 			flava_text += " " + _styled_adjective(adjective)
 			if i < PlayerData.noun.adjectives.size() - 1:
 				flava_text += ","
 
-		flava_text += " " + PlayerData.noun.name.capitalize()
+		flava_text += " " + PlayerData.noun.word.capitalize()
 
 	character_description_label.text = flava_text
 
@@ -95,4 +95,4 @@ func _show_character_description():
 	character_description_label.get_parent().get_parent().show()
 	
 	# Emit signal for future use (when adjective selection is implemented)
-	name_submitted.emit(PlayerData.noun.name)
+	name_submitted.emit(PlayerData.noun.word)

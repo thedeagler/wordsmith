@@ -61,11 +61,11 @@ func update_ui():
 	
 	# Update button labels with noun names (only for visible buttons)
 	if PlayerData.noun.body != null:
-		$VBoxContainer/HBoxContainer/BodyButton.text = "Body: %s" % PlayerData.noun.body.name
+		$VBoxContainer/HBoxContainer/BodyButton.text = "Body: %s" % PlayerData.noun.body.word
 	if PlayerData.noun.feet != null:
-		$VBoxContainer/HBoxContainer/FeetButton.text = "Feet: %s" % PlayerData.noun.feet.name
+		$VBoxContainer/HBoxContainer/FeetButton.text = "Feet: %s" % PlayerData.noun.feet.word
 	if PlayerData.noun.hand != null:
-		$VBoxContainer/HBoxContainer/HandButton.text = "Hand: %s" % PlayerData.noun.hand.name
+		$VBoxContainer/HBoxContainer/HandButton.text = "Hand: %s" % PlayerData.noun.hand.word
 	
 	# Hide selection display and confirm button initially
 	$VBoxContainer/SelectionDisplay.visible = false
@@ -92,7 +92,7 @@ func select_property(property: String):
 		# Show the adjective + noun combination with rarity color using BBCode
 		var rarity_color = current_adjective.rarity.color
 		var color_hex = "#" + rarity_color.to_html(false)
-		var combination_text = "[color=%s]%s[/color] %s" % [color_hex, current_adjective.word, selected_noun.name]
+		var combination_text = "[color=%s]%s[/color] %s" % [color_hex, current_adjective.word, selected_noun.word]
 		$VBoxContainer/SelectionDisplay.text = combination_text
 		
 		# Show the selection and confirm button

@@ -88,11 +88,11 @@ func get_player_current_item():
 	return null
 
 func first_time_dialog() -> DialogData:
-	print("Player data reading, noun: ", PlayerData.noun.name)
+	print("Player data reading, noun: ", PlayerData.noun.word)
 	var builder = DialogDataBuilder.new()
 	builder.add_speaker("Wordsmith")
 	builder.add_texts([
-			"Welcome, %s! I am the Wordsmith." % PlayerData.noun.name.capitalize(),
+			"Welcome, %s! I am the Wordsmith." % PlayerData.noun.word.capitalize(),
 			"I can make your lame nouns so much cooler with... adjectives!",
 			"I see you've collected some on the battle field... Let me see...",
 		])
