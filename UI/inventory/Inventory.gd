@@ -11,6 +11,16 @@ func _ready() -> void:
 	PlayerData.inventory_update.connect(populate_inventory)
 	populate_inventory(PlayerData.nounInventory)
 
+func _process(delta: float) -> void:
+	if not PlayerData.heldItem:
+		$Loadout/Weapon/WeaponButton.disabled = true
+		$Loadout/Armor/ArmorButton.disabled = true
+		$Loadout/Boot/BootButton.disabled = true
+	else:
+		$Loadout/Weapon/WeaponButton.disabled = false
+		$Loadout/Armor/ArmorButton.disabled = false
+		$Loadout/Boot/BootButton.disabled = false
+
 func populate_inventory(inventory_items: Array):
 	print('pop inv', inventory_items)
 	for child in grid_container.get_children():
@@ -34,3 +44,15 @@ func equip_item(item: Resource, slot_type: String):
 func _on_inventory_slot_selected(slot: InventorySlot):
 	if slot.equipped_item:
 		equip_item(slot.equipped_item, slot.slot_type)
+
+func _on_weapon_button_pressed() -> void:
+	PlayerData.loadout.weapon = PlayerData.heldItem
+	PlayerData.heldItem = null
+
+func _on_armor_button_pressed() -> void:
+	PlayerData.loadout.armor = PlayerData.heldItem
+	PlayerData.heldItem = null
+
+func _on_boot_button_pressed() -> void:
+	PlayerData.loadout.boots = PlayerData.heldItem
+	PlayerData.heldItem = null

@@ -1,8 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bb470ogskouf1"]
+[gd_scene load_steps=7 format=3 uid="uid://bb470ogskouf1"]
 
 [ext_resource type="Script" uid="uid://bsbgyr35ot74l" path="res://UI/inventory/Inventory.gd" id="1_gc0m4"]
 [ext_resource type="Texture2D" uid="uid://yabwf7yludjl" path="res://assets/player derp.png" id="2_nqiy8"]
 [ext_resource type="PackedScene" uid="uid://bpx43sjxe3wec" path="res://UI/inventory/InventorySlot.tscn" id="2_qfesm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nqiy8"]
+bg_color = Color(0.118581, 0.118581, 0.118581, 1)
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kkbyv"]
+bg_color = Color(0.843137, 0.529412, 0.913725, 0.54902)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xq73"]
+bg_color = Color(1, 0.839216, 1, 0.494118)
 
 [node name="Inventory" type="CanvasLayer"]
 script = ExtResource("1_gc0m4")
@@ -43,11 +53,66 @@ horizontal_alignment = 3
 [node name="Weapon" parent="Loadout" instance=ExtResource("2_qfesm")]
 position = Vector2(339, 240)
 
+[node name="WeaponButton" type="Button" parent="Loadout/Weapon"]
+offset_right = 82.0
+offset_bottom = 75.0
+theme_override_styles/disabled = SubResource("StyleBoxFlat_nqiy8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kkbyv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5xq73")
+
+[node name="Label" type="Label" parent="Loadout/Weapon/WeaponButton"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 25.0
+offset_right = 72.0
+offset_bottom = 48.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Weapon"
+horizontal_alignment = 1
+
 [node name="Armor" parent="Loadout" instance=ExtResource("2_qfesm")]
 position = Vector2(32, 292)
 
+[node name="ArmorButton" type="Button" parent="Loadout/Armor"]
+offset_right = 82.0
+offset_bottom = 75.0
+theme_override_styles/disabled = SubResource("StyleBoxFlat_nqiy8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kkbyv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5xq73")
+
+[node name="Label" type="Label" parent="Loadout/Armor/ArmorButton"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 26.0
+offset_right = 73.0
+offset_bottom = 49.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Armor"
+horizontal_alignment = 1
+
 [node name="Boot" parent="Loadout" instance=ExtResource("2_qfesm")]
 position = Vector2(282, 395)
+
+[node name="BootButton" type="Button" parent="Loadout/Boot"]
+offset_right = 82.0
+offset_bottom = 75.0
+theme_override_styles/disabled = SubResource("StyleBoxFlat_nqiy8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kkbyv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5xq73")
+
+[node name="Label" type="Label" parent="Loadout/Boot/BootButton"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 25.0
+offset_right = 72.0
+offset_bottom = 48.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Boots
+"
+horizontal_alignment = 1
 
 [node name="Line2D" type="Line2D" parent="Loadout"]
 position = Vector2(-36, -1)
@@ -57,6 +122,7 @@ default_color = Color(1, 0, 0, 1)
 antialiased = true
 
 [node name="InventoryGrid" type="Panel" parent="."]
+visible = false
 offset_left = 613.0
 offset_top = 112.0
 offset_right = 1077.0
@@ -89,3 +155,7 @@ offset_bottom = 492.0
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
+
+[connection signal="pressed" from="Loadout/Weapon/WeaponButton" to="." method="_on_weapon_button_pressed"]
+[connection signal="pressed" from="Loadout/Armor/ArmorButton" to="." method="_on_weapon_button_pressed"]
+[connection signal="pressed" from="Loadout/Boot/BootButton" to="." method="_on_weapon_button_pressed"]
