@@ -7,10 +7,12 @@ class_name TownNPC
 
 var player_in_range: bool = false
 var is_interacting: bool = false
+var tooltip: Control
 
 func _ready():
 	$AnimatedSprite2D.play("idle")
 	_setup_interaction_area()
+	tooltip = $Tooltip
 
 func _setup_interaction_area():
 	# Configure the collision shape based on interaction_range
@@ -28,15 +30,18 @@ func _input(event):
 func _on_player_entered(body):
 	if body.is_in_group("player"):
 		player_in_range = true
+		show_tooltip()
 		print("Player entered interaction range with ", npc_name)
 
 func _on_player_exited(body):
 	if body.is_in_group("player"):
 		player_in_range = false
+		hide_tooltip()
 		print("Player left interaction range with ", npc_name)
 
 func interact_with_player():
 	is_interacting = true
+	hide_tooltip() # Hide tooltip when interaction starts
 	
 	var dialog_to_show = first_time_dialog()
 	
@@ -126,3 +131,11 @@ func _on_noun_picking_completed(_noun_picker, canvas_layer: CanvasLayer):
 	
 	# Clear the adjective inventory since they've been applied
 	PlayerData.adjInventory.clear()
+
+func show_tooltip():
+	if tooltip and not is_interacting:
+		tooltip.visible = true
+
+func hide_tooltip():
+	if tooltip:
+		tooltip.visible = false
