@@ -6,7 +6,6 @@ var nounInventory: Array[NounData] = []
 
 var heldItem: NounData
 
-signal inventory_update(inventory_items)
 
 func _ready():
 	noun = NounData.new()
@@ -20,9 +19,9 @@ func loot_item(resource) -> void:
 		nounInventory.append(resource)
 		PlayerData.heldItem = resource
 		Input.action_press("inventory")
-	emit_signal("inventory_update", nounInventory)
+	emit_signal("inventory_update")
 
-
+signal inventory_update
 
 func test_player_data():
 	# Utils.load_adjectives()
