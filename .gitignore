@@ -3,3 +3,6 @@
 /android/
 .DS_Store
 .vscode
+build
+build.zip
+export_presets.cfg
