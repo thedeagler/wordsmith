@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://7lss67n68pby" path="res://entities/enemies/enemy_base.gd" id="1_qvmat"]
 [ext_resource type="PackedScene" uid="uid://jukb8qqfulqr" path="res://components/Damageable.tscn" id="2_j3at5"]
-[ext_resource type="Script" uid="uid://b315q6odgbs3d" path="res://entities/enemies/hit_box.gd" id="2_ogbit"]
+[ext_resource type="Script" uid="uid://b13cer4kgjndg" path="res://entities/enemies/hit_box.gd" id="2_ogbit"]
 [ext_resource type="PackedScene" uid="uid://civ0tpo6xa021" path="res://components/Damager.tscn" id="3_qvmat"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qvmat"]
