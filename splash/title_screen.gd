@@ -24,9 +24,9 @@ func load_fonts():
 	# Load Alien font for shuffling phase
 	alien_font = load("res://assets/Alien Font-Regular.otf")
 	
-	# Load Bethellen font for settled phase
+	# Load BethEllen font for settled phase
 	# Note: You may need to adjust this path based on your actual font file
-	bethellen_font = load("res://assets/Bethellen-Regular.ttf")
+	bethellen_font = load("res://assets/BethEllen-Regular.ttf")
 	
 	# If Bethellen font doesn't exist, fall back to default
 	if not bethellen_font:
@@ -130,20 +130,20 @@ func display_text_with_fonts(text: String):
 	var bbcode_text = ""
 	
 	for i in text.length():
-		var char = text[i]
-		if char == " ":
+		var current_char = text[i]
+		if current_char == " ":
 			bbcode_text += " "
 		elif i < letters_fixed:
-			# This letter is fixed, use Bethellen font
+			# This letter is fixed, use BethEllen font
 			if bethellen_font:
-				bbcode_text += "[font=res://assets/Bethellen-Regular.ttf][font_size=69]" + char + "[/font_size][/font]"
+				bbcode_text += "[font=res://assets/BethEllen-Regular.ttf][font_size=69]" + current_char + "[/font_size][/font]"
 			else:
-				bbcode_text += "[font_size=69]" + char + "[/font_size]"
+				bbcode_text += "[font_size=69]" + current_char + "[/font_size]"
 		else:
 			# This letter is still random, use Alien font
 			if alien_font:
-				bbcode_text += "[font=res://assets/Alien Font-Regular.otf][font_size=69]" + char + "[/font_size][/font]"
+				bbcode_text += "[font=res://assets/Alien Font-Regular.otf][font_size=69]" + current_char + "[/font_size][/font]"
 			else:
-				bbcode_text += "[font_size=69]" + char + "[/font_size]"
+				bbcode_text += "[font_size=69]" + current_char + "[/font_size]"
 	
 	title_label.text = bbcode_text
