@@ -100,4 +100,4 @@ position = Vector2(-9, -40)
 sprite_frames = SubResource("SpriteFrames_cxlbk")
 animation = &"run"
 autoplay = "idle"
-frame_progress = 0.321038
+frame_progress = 0.839914

@@ -18,6 +18,7 @@ func loot_item(resource) -> void:
 	elif resource is NounData:
 		nounInventory.append(resource)
 		PlayerData.heldItem = resource
+		Input.action_press("inventory")
 	emit_signal("inventory_update")
 
 signal inventory_update
