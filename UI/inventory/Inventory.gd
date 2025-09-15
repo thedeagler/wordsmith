@@ -5,13 +5,13 @@ class_name InventoryUI
 @onready var armor_slot: InventorySlot = $Loadout/Armor
 @onready var boots_slot: InventorySlot = $Loadout/Boots
 @onready var grid_container: GridContainer = $InventoryGrid/GridContainer
-var slot_scene := preload("res://ui/inventory/InventorySlot.tscn")
+var slot_scene := preload("res://UI/inventory/InventorySlot.tscn")
 
 func _ready() -> void:
 	PlayerData.inventory_update.connect(populate_inventory)
 	populate_inventory(PlayerData.nounInventory)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	%feetsword.visible = PlayerData.noun.feet != null
 	%bodysword.visible = PlayerData.noun.body != null
 	%handsword.visible = PlayerData.noun.hand != null

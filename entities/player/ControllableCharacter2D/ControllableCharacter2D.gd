@@ -11,7 +11,7 @@ func _ready() -> void:
 	get_tree().current_scene.call_deferred("add_child", inventory_ui)
 	inventory_ui.visible = false
 	
-func _process(delta) -> void:
+func _process(_delta) -> void:
 	if velocity.length() > 0:
 		$AnimatedSprite2D.play("run")
 	else:
