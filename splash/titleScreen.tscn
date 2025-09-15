@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ro4c6qbvesfv"]
+[gd_scene load_steps=6 format=3 uid="uid://ro4c6qbvesfv"]
 
 [ext_resource type="Script" uid="uid://dmgc7rtweb1ft" path="res://splash/title_screen.gd" id="1_p13qu"]
 [ext_resource type="Texture2D" uid="uid://c4p2bjpovco85" path="res://assets/nature backgrounds/PNG/autumn/6.png" id="2_gj81v"]
+[ext_resource type="FontFile" uid="uid://cxdl6et7l1oqw" path="res://assets/Alien Font-Regular.otf" id="3_gj81v"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p13qu"]
 bg_color = Color(0.0869, 0.743127, 0.79, 1)
@@ -58,6 +59,7 @@ theme_override_constants/separation = 32
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_gj81v")
 theme_override_font_sizes/font_size = 69
 text = "Word Smith"
 
