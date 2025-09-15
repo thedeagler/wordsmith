@@ -57,11 +57,12 @@ func create_adjective_bubbles():
 	elif PlayerData.noun.hand != null:
 		equipped_item = PlayerData.noun.hand
 	
+	print("equipped_item", equipped_item)
 	var adjectives = []
 	
 	# Try to get adjectives from equipped item
 	if equipped_item and equipped_item.has_method("get_adjectives"):
-		adjectives = equipped_item.get_adjectives()
+		adjectives = equipped_item.adjectives
 	
 	# If no adjectives found, get 3 random ones
 	if adjectives.size() == 0:
