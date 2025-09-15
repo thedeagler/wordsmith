@@ -60,7 +60,7 @@ bounds_enabled = false
 show_debug_bounds = true
 
 [node name="MeleeWeapon" parent="Player" instance=ExtResource("3_u886a")]
-position = Vector2(76, -127)
+position = Vector2(-1, 5)
 
 [node name="TransitionTrigger" type="Area2D" parent="."]
 

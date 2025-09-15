@@ -9,6 +9,7 @@ var player_in_range: bool = false
 var is_interacting: bool = false
 
 func _ready():
+	$AnimatedSprite2D.play("idle")
 	_setup_interaction_area()
 
 func _setup_interaction_area():

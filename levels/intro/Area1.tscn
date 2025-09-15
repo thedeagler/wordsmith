@@ -52,6 +52,7 @@ movement_speed = 600.0
 [node name="SmoothFollowCamera" parent="Player" instance=ExtResource("3_udnfv")]
 
 [node name="MeleeWeapon" parent="Player" instance=ExtResource("5_snbsy")]
+position = Vector2(-3, -3)
 
 [node name="TransitionTrigger" type="Area2D" parent="."]
 position = Vector2(3602, 800)
