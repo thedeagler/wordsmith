@@ -60,8 +60,8 @@ func interact_with_player():
 		is_interacting = false
 
 func _on_dialog_completed(_dialog_box: DialogBox, canvas_layer: CanvasLayer):
-	# Dialog finished, now perform the enchantment
-	add_adjective_to_item()
+	# Dialog finished, now show noun picker
+	show_noun_picker()
 	is_interacting = false
 	# Clean up the dialog box and canvas layer
 	if canvas_layer and is_instance_valid(canvas_layer):
@@ -97,14 +97,31 @@ func first_time_dialog() -> DialogData:
 			"I see you've collected some on the battle field... Let me see...",
 		])
 
-	var adjective_text = ", ".join(PlayerData.adjInventory.map(func(adjective: AdjectiveData): return adjective.word))
+	var adjective_text = ", ".join(PlayerData.adjInventory.map(func(adjective: AdjectiveData):
+		var color_hex = "#" + adjective.rarity.color.to_html(false)
+		return "[color=%s]%s[/color]" % [color_hex, adjective.word]
+	))
 	builder.add_text(adjective_text + "... so powerful...")
-	
-	# Adjective selection loop
-	for adjective in PlayerData.adjInventory:
-		builder.add_text("Which noun shall be " + adjective.word + "?")
-
-	# clear the adjectives from the inventory
-	# PlayerData.adjInventory.clear()
 
 	return builder.build()
+
+func show_noun_picker():
+	var noun_picker = preload("res://nounPicker/NounPicker.tscn").instantiate()
+	var canvas_layer = CanvasLayer.new()
+	canvas_layer.layer = 101 # Higher than dialog layer
+	get_tree().current_scene.add_child(canvas_layer)
+	canvas_layer.add_child(noun_picker)
+	
+	# Start picking with player's collected adjectives
+	noun_picker.start_picking(PlayerData.adjInventory)
+	
+	# Connect to completion signal
+	noun_picker.all_adjectives_processed.connect(_on_noun_picking_completed.bind(noun_picker, canvas_layer), CONNECT_ONE_SHOT)
+
+func _on_noun_picking_completed(_noun_picker, canvas_layer: CanvasLayer):
+	# Clean up
+	if canvas_layer and is_instance_valid(canvas_layer):
+		canvas_layer.queue_free()
+	
+	# Clear the adjective inventory since they've been applied
+	PlayerData.adjInventory.clear()
