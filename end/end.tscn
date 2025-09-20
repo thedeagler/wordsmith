@@ -1,0 +1,107 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvqxryf62s4tv"]
+
+[ext_resource type="Texture2D" uid="uid://buq7cdsmfv0vh" path="res://assets/nature backgrounds/PNG/summer/5.png" id="1_7p2ky"]
+[ext_resource type="Script" uid="uid://dlh5t7ylowtsd" path="res://end/end.gd" id="1_p521k"]
+[ext_resource type="FontFile" uid="uid://c2dwrnro4tvsv" path="res://assets/BethEllen-Regular.ttf" id="2_jueq2"]
+[ext_resource type="Texture2D" uid="uid://c1hy4oycx46ll" path="res://assets/nouns/sword.png" id="3_jueq2"]
+
+[node name="End" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p521k")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_7p2ky")
+expand_mode = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -465.0
+offset_top = 55.0
+offset_right = 460.0
+offset_bottom = 178.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_right = 24
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_jueq2")
+theme_override_font_sizes/font_size = 55
+text = "Thanks for playing our game!"
+
+[node name="PanelContainer2" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -186.0
+offset_top = 178.0
+offset_right = 186.0
+offset_bottom = 232.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_right = 24
+
+[node name="Label" type="Label" parent="PanelContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_jueq2")
+theme_override_font_sizes/font_size = 24
+text = "We hope you enjoyed your"
+
+[node name="PanelContainer3" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -129.0
+offset_top = 227.0
+offset_right = 86.0
+offset_bottom = 281.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_right = 24
+
+[node name="slotLabel" type="Label" parent="PanelContainer3/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_jueq2")
+theme_override_font_sizes/font_size = 24
+text = "... foot sword"
+
+[node name="sword" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(563, 376)
+texture = ExtResource("3_jueq2")

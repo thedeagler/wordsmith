@@ -3,6 +3,12 @@ extends Node
 var current_scene: int = 0
 
 func first_scene():
+	current_scene = 0
+	_switch_to_scene(SCENES.SCENE_LIST[current_scene])
+	current_scene += 1
+
+func replay():
+	current_scene = 2
 	_switch_to_scene(SCENES.SCENE_LIST[current_scene])
 	current_scene += 1
 
