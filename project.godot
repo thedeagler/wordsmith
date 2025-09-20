@@ -25,6 +25,10 @@ SceneSwitcher="*res://sceneSwitcher/SceneSwitcher.gd"
 
 window/stretch/mode="viewport"
 
+[editor]
+
+export/convert_text_resources_to_binary=false
+
 [global_group]
 
 player=""
